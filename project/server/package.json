@@ -5,14 +5,14 @@
   "description": "MERN server side ",
   "main": "index.js",
   "scripts": {
-  "start": "nodemon index.js", 
+    "start": "nodemon index.js"
   },
   "author": "Carl Manley",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongoose": "^7.2.2",
     "nodemon": "^2.0.22"
   }
 }
