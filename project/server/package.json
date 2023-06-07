@@ -6,7 +6,6 @@
   "main": "index.js",
   "scripts": {
   "start": "nodemon index.js", 
-  "both": "concurrently \"nodemon index.js\" \"cd ../client && npm run dev\""
   },
   "author": "Carl Manley",
   "license": "ISC",
