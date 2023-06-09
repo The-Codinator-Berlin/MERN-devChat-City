@@ -40,7 +40,7 @@ const postsSchema = new mongoose.Schema({
     },
 
     when_posted: {
-        type: Timestamp,
+        type: String,
         required: true,
         unique: false
     },
@@ -48,7 +48,7 @@ const postsSchema = new mongoose.Schema({
     comments: [{
 
         comment: {
-            type: string,
+            type: String,
             required: false,
             unique: false,
         },
