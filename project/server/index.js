@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import chatPosts from "../server/routes/chatPosts.js";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
+import postsRouter from "../server/routes/postsRouter.js"
 
 dotenv.config();
 
@@ -26,7 +26,7 @@ const startServer = () => {
 };
 
 const loadRoutes = () => {
-  app.use("/devChat-City", chatPosts);
+  app.use("/api/posts", postsRouter)
 };
 
 const connectMongoDB = async () => {
