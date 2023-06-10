@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/all", async (request, response) => {
 
     try {
-        const allUsers = await usersMdel.find({});
+        const allUsers = await usersModel.find({});
         response.status(200).json({
             allUsers,
             number: allUsers.length,
