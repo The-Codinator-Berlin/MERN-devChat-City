@@ -15,7 +15,7 @@ const postsSchema = new mongoose.Schema({
         unique: false
     },
 
-    coding_language: {
+    language: {
         type: String,
         required: true,
         unique: false
