@@ -26,7 +26,7 @@ const startServer = () => {
 };
 
 const loadRoutes = () => {
-  app.use("/api/posts", postsRouter)
+  app.use("/api/devChat-City/posts", postsRouter);
 };
 
 const connectMongoDB = async () => {
