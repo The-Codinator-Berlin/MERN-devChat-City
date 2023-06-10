@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import postsRouter from "../server/routes/postsRouter.js"
+import usersRouter from "../server/routes/usersRouter.js"
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ const startServer = () => {
 
 const loadRoutes = () => {
   app.use("/api/devChat-City/posts", postsRouter);
+  app.use("/api/devChat-City/users", usersRouter);
 };
 
 const connectMongoDB = async () => {
