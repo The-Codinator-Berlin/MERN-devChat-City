@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const postsSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
 
     heading: {
         type: String,
@@ -69,6 +69,6 @@ const postsSchema = new mongoose.Schema({
 
 });
 
-const postsModel = mongoose.model("post", postsSchema);
+const postsModel = mongoose.model("post", postSchema);
 
 export default postsModel;
