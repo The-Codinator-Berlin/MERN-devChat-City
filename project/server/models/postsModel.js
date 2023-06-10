@@ -15,13 +15,13 @@ const postSchema = new mongoose.Schema({
         unique: false
     },
 
-    language: {
+    codingLanguage: {
         type: String,
         required: true,
         unique: false
     },
 
-    user_name: {
+    author: {
         type: String,
         required: true,
         unique: true
@@ -39,7 +39,7 @@ const postSchema = new mongoose.Schema({
         unique: false
     },
 
-    when_posted: {
+    postedWhen: {
         type: String,
         required: true,
         unique: false
