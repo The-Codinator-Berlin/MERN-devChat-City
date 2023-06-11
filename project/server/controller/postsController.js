@@ -28,7 +28,7 @@ const getPostsByCodingLanguage = async (request, response) => {
         });
         console.log('requestedPostsByCodingLanguage :>>>>>>>> ', requestedPostsByCodingLanguage);
         if (requestedPostsByCodingLanguage.length === 0) {
-            response.status(200).json({
+            response.status(201).json({
                 message: "Sorry there are no posts matching the coding language you are looking for!",
             });
         } else {
