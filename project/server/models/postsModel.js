@@ -65,7 +65,9 @@ const postSchema = new mongoose.Schema({
             required: false,
             unique: false,
         },
-    },]
+    },],
+
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
 
 });
 
