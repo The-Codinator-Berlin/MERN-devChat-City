@@ -33,6 +33,8 @@ const userSchema = new mongoose.Schema({
         unique: false
     },
 
+    postsArr: { type: mongoose.Schema.Types.ObjectId, ref: "post" },
+
 });
 
 const usersModel = mongoose.model("user", userSchema);

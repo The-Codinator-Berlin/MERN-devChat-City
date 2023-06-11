@@ -3,7 +3,7 @@ import usersModel from "../models/usersModel.js";
 const getAllUsers = async (request, response) => {
 
     try {
-        const allUsers = await usersModel.find({});
+        const allUsers = await usersModel.find({}).populate({ path: "postsArr" });
         response.status(200).json({
             allUsers,
             number: allUsers.length,
