@@ -3,7 +3,7 @@ import postsModel from "../models/postsModel.js";
 const getAllPosts = async (request, response) => {
 
     try {
-        const allPosts = await postsModel.find({}).populate({ path: "userId" });;
+        const allPosts = await postsModel.find({}).populate({ path: "userWhoPosted", select: "userId" });;
         response.status(200).json({
             allPosts,
             number: allPosts.length,
