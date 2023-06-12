@@ -31,7 +31,7 @@ const imageUpload = async (request, response) => {
                 message: "Your file has been uploaded successfully",
                 avatar: uploadImage.secure_url
             });
-            console.log("File uploaded successfully!")
+            console.log("\u001b[37m" + "File uploaded successfully!")
         } catch (error) {
             console.log("\u001B[31m", error);
         }
