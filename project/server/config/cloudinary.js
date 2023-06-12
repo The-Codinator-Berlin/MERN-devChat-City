@@ -9,8 +9,6 @@ const cloudinaryConfig = () => {
         api_secret: process.env.SECRET,
         secure: true
     });
-    console.log('process.env.CLOUD_NAME :>> ', process.env.API_KEY);
-
 };
 
 export default cloudinaryConfig;
