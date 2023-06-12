@@ -24,7 +24,7 @@ const addMiddleware = () => {
 const startServer = () => {
   const port = process.env.PORT || 5001;
   app.listen(port, () => {
-    console.log("Server is running on port" + port);
+    console.log("\u001b[36m" + "Server is running on port" + port);
   });
 };
 
@@ -35,7 +35,7 @@ const loadRoutes = () => {
 
 const connectMongoDB = async () => {
   await mongoose.connect(process.env.DB);
-  console.log("MongoDB is running!");
+  console.log("\u001b[35m" + "MongoDB is running!");
 };
 
 (async function controller() {
