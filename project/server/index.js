@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import postsRoute from "./routes/postsRoute.js"
 import usersRoute from "./routes/usersRoute.js"
+import cloudinaryConfig from "./config/cloudinary.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ const addMiddleware = () => {
     })
   );
   app.use(cors());
+  cloudinaryConfig()
 };
 
 const startServer = () => {
