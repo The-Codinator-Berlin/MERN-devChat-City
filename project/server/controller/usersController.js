@@ -18,4 +18,12 @@ const getAllUsers = async (request, response) => {
 
 }
 
-export { getAllUsers }; 
+const imageUpload = async (request, response) => {
+
+}
+
+
+
+
+
+export { getAllUsers, imageUpload, }; 

@@ -1,8 +1,12 @@
 import express from "express";
 import { getAllUsers } from "../controller/usersController.js";
+import { imageUpload } from "../controller/usersController.js"
 
-const userRoutes = express.Router();
 
-userRoutes.get("/all", getAllUsers);
+const userRoute = express.Router();
 
-export default userRoutes;
+userRoute.get("/all", getAllUsers);
+
+userRoute.post("/imageUpload", imageUpload);
+
+export default userRoute;
