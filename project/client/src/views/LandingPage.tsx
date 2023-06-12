@@ -1,10 +1,11 @@
-import React from 'react'
 
 type Props = {}
 
 const LandingPage = () => {
     return (
-        <div>Landing Page</div>
+        <div>
+            <h1 className="text-green-600">Hello</h1>
+        </div>
     )
 }
 
