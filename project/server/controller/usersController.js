@@ -29,7 +29,7 @@ const imageUpload = async (request, response) => {
             });
             response.status(200).json({
                 message: "Your file has been uploaded successfully",
-                avatar: uploadImage.url
+                avatar: uploadImage.secure_url
             });
             console.log("File uploaded successfully!")
         } catch (error) {
