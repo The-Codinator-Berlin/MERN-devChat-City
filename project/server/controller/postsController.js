@@ -20,8 +20,6 @@ const getAllPosts = async (request, response) => {
 };
 
 const getPostsByCodingLanguage = async (request, response) => {
-    const codingLanguage = request.params.codingLanguage
-
     try {
         const requestedPostsByCodingLanguage = await postsModel.find({
             codingLanguage: request.params.codingLanguage,
