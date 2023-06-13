@@ -14,8 +14,8 @@ const LandingPage = () => {
                     devChat-City
                 </h1>
                 <div className="w-40 h-20 flex justify-around font-Poppins font-extralight md:flex-row sm:flex-wrap">
-                    <button>Login</button>
-                    <button>Register</button>
+                    <button className="hover:text-orange-500">Login</button>
+                    <button className="hover:text-sky-400">Register</button>
                 </div>
             </div>
             <br />
