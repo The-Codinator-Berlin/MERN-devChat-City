@@ -10,14 +10,12 @@ const LandingPage = () => {
                 src={devChatLogo}
                 alt="Image"
             />
-            <div className="flex justify-center slide-in">
+            <div className="flex justify-center items-center sm:flex-wraptext-center slide-in">
                 <h1 className="text-center font-Monoton md:text-6xl sm:text-xs">
                     devChat-City
                 </h1>
-                <div className="w-40 h-20 flex justify-around font-Poppins font-extralight md:flex-row sm:flex-wrap">
-                    <button className="hover:text-orange-500">Login</button>
-                    <button className="hover:text-sky-400">Register</button>
-                </div>
+                <button className="hover:text-orange-500 sizeLinks h-20 flex-row align-middle font-Poppins font-extralight"><Link to="/devChat-City/api/login">Login</Link></button>
+                <button className="hover:text-sky-400 sizeLinks h-20 flex-row align-middle font-Poppins font-extralight"><Link to="/devChat-City/api/register">Register</Link></button>
             </div>
             <br />
             <h6 className="font-poppins font-extralight text-xs text-sky-400">
