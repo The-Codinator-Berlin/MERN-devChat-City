@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import devChatLogo from "../assets/devChatLogo.jpeg";
+import '../index.css'
 
 const LandingPage = () => {
     return (
@@ -9,7 +10,7 @@ const LandingPage = () => {
                 src={devChatLogo}
                 alt="Image"
             />
-            <div className="flex justify-center">
+            <div className="flex justify-center slide-in">
                 <h1 className="text-center font-Monoton md:text-6xl sm:text-xs">
                     devChat-City
                 </h1>
@@ -23,9 +24,8 @@ const LandingPage = () => {
                 Designed and developed by{" "}
                 <Link
                     to="/devChat-City/api/about"
-                    className="hover:text-orange-500 hover:text-lg"
                 >
-                    Carl Manley
+                    <span className="text-emerald-400 hover:text-orange-500 hover:text-lg">Carl Manley</span>
                 </Link>
             </h6>
         </div>
