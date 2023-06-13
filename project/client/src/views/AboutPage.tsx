@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import devChatLogo from "../assets/devChatLogo.jpeg";
+
 
 function AboutPage() {
     return (
-        <div className="bg-black h-screen text-white">
+        <div className="bg-black min-h-screen text-white">
             <h1 className="text-center font-Monoton md:text-6xl sm:text-xs text-white pt-3 pb-2 px-10">
                 About <br />
             </h1>
             <div className="flex justify-center mb-2">
-                <Link to="/devChat-City/api" className="font-Poppins hover:text-amber-200">Back to the landing page</Link><br />
+                <Link to="/devChat-City/api" className="font-Poppins text-emerald-400 <br />
+                hover:text-amber-200">Back to the landing page</Link><br />
             </div>
             <p className="text-center pb-3 px-10 text-sky-400">
                 <hr className="pb-3 px-10" />
@@ -21,37 +24,60 @@ function AboutPage() {
                 <hr />
                 <br />
                 <h3 className="text-orange-500">My details:</h3>
-                Linkdin: https://www.linkedin.com/in/carl-manley/ <br />
+                Linkdin: <a className="hover:text-orange-500" href="https://www.linkedin.com/in/carl-manley/">https://www.linkedin.com/in/carl-manley/</a>
                 <br />
-                Github: https://github.com/The-Codinator-Berlin
+                <br />
+                Github: <a className="hover:text-orange-500" href="https://github.com/The-Codinator-Berlin">https://github.com/The-Codinator-Berlin</a>
                 <br />
                 <br />
                 <hr />
                 <br />
                 <h3 className="text-orange-500">What I used to create devChat-City:</h3>
                 <br />
-                MongoDB: https://www.mongodb.com/
+                MongoDB: <a className="hover:text-orange-500" href="https://www.mongodb.com/">https://www.mongodb.com/</a>
                 <br />
                 <br />
-                Mongoose: https://mongoosejs.com/
+                Mongoose: <a className="hover:text-orange-500" href="https://mongoosejs.com/">https://mongoosejs.com/</a>
                 <br />
                 <br />
-                Express: https://expressjs.com/
+                Express: <a className="hover:text-orange-500" href="https://expressjs.com/">https://expressjs.com/</a>
                 <br />
-                <br />; React: https://react.dev/
-                <br />
-                <br />
-                NodeJS: https://nodejs.org/en
+                <br /> React: <a className="hover:text-orange-500" href="https://react.dev/">https://react.dev/</a>
                 <br />
                 <br />
-                Multer: https://www.npmjs.com/package/multer
+                NodeJS: <a className="hover:text-orange-500" href="https://nodejs.org/en">https://nodejs.org/en</a>
                 <br />
                 <br />
-                Cloudinary: https://cloudinary.com/
+                Multer: <a className="hover:text-orange-500" href="https://www.npmjs.com/package/multer">https://www.npmjs.com/package/multer</a>
+                <br />
+                <br />
+                Cloudinary: <a className="hover:text-orange-500" href="https://cloudinary.com/">https://cloudinary.com/</a>
+                <br />
+                <br />
+                Vite: <a className="hover:text-orange-500" href="https://vitejs.dev/">https://vitejs.dev/</a>
+                <br />
+                <br />
+                Tailwind css: <a className="hover:text-orange-500" href="https://www.npmjs.com/package/bcrypt">https://www.npmjs.com/package/bcrypt</a>
+                <br />
+                <br />
+                Bcrypt: <a className="hover:text-orange-500" href="https://tailwindcss.com/">https://tailwindcss.com/</a>
                 <br />
                 <br />
                 <hr />
+                <div className="flex justify-center">
+                    <img
+                        className="md:w-40 md:h-40 rounded-b-full pt-2 mt-4"
+                        src={devChatLogo}
+                        alt="Image"
+                    />
+                </div>
+                <br />
+                <div className="flex justify-center mb-1 pb-2">
+                    <Link to="/devChat-City/api" className="font-Poppins text-emerald-400 hover:text-amber-200">Back to the landing page</Link><br />
+                </div>
             </p>
+            <br />
+            <hr className="mx-10 pb-4" />
         </div>
     );
 }
