@@ -5,16 +5,26 @@ import { Link } from "react-router-dom";
 
 type Props = {};
 
-// interface file {
-//   name: string;
-//   size: number;
-//   type: string;
-// }
+interface user {
+  name: string;
+  userName: string;
+  email: string;
+  password: string;
+  avatar: string;
+}
 
 function Register() {
   const [selectedImageToUpload, setSelectedImageToUpload] = useState<
     File | string
   >("");
+
+  const [newUser, setNewUser] = useState<user>({
+    name: "",
+    userName: "",
+    email: "",
+    password: "",
+    avatar: "",
+  });
 
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || "";
@@ -36,9 +46,10 @@ function Register() {
         "http://localhost:5001/api/devChat-City/users/imageUpload",
         requestOptions
       );
-      const result = await response.json();
-
-      console.log("result :>> ", result);
+      if (response.ok) {
+        const result = await response.json();
+        setNewUser({ ...newUser, avatar: result.avatar });
+      }
     } catch (error) {
       console.log("Error uploading image :>> ", error);
     }
@@ -56,9 +67,11 @@ function Register() {
           onSubmit={submitImageUploadFunc}
           className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center"
         >
-          <div className="flex justify-center h-40 rounded-full my-4">
-            <div className="imageContainer w-40 h-40 rounded-full border-2 border-sky-400"></div>
-          </div>
+          {newUser && (
+            <div className="flex justify-center h-40 w-40 rounded-full my-4 imageContainer border-2 border-sky-400">
+              <img className="rounded-full" src={newUser.avatar} />
+            </div>
+          )}
           <div className="flex-col py-4">
             <input
               className="h-7 bg-emerald-500 rounded-full font-Poppins font-light"
