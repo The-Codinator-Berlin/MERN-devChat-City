@@ -11,7 +11,7 @@ const LandingPage = () => {
         alt="Image"
       />
       <div className="flex justify-center items-center sm:flex-wraptext-center slide-in">
-        <h1 className="text-center font-Monoton md:text-6xl sm:text-xs">
+        <h1 className="text-center font-Monoton sm:text-6xl text-2xl">
           devChat-City
         </h1>
         <button className="hover:text-orange-500 sizeLinks h-20 flex-row align-middle font-Poppins font-extralight">
