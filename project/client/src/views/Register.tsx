@@ -64,7 +64,7 @@ function Register() {
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
       <div className="flex justify-center items-center sm:flex-col-center slide-in h-1/3">
-        <h1 className="text-center font-Monoton sm:text-6xl text-4xl mt-6 mb-6">
+        <h1 className="text-center font-Monoton sm:text-6xl text-5xl mt-6 mb-6">
           Register
         </h1>
       </div>
@@ -73,8 +73,8 @@ function Register() {
           onSubmit={submitImageUploadFunc}
           className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center"
         >
-          //NOTE - If newUser has information containing a string for the avatar
-          in the state it is then displayed
+          {/* //NOTE - If newUser has information containing a string for the avatar */}
+          {/* //in the state it is then displayed} */}
           {newUser && (
             <div className="flex justify-center h-40 w-40 rounded-full my-4 imageContainer border-2 border-sky-400">
               <img className="rounded-full" src={newUser.avatar} />
