@@ -1,10 +1,48 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import devChatLogo from "../assets/devChatLogo.jpeg";
 import "../index.css";
 import { Link } from "react-router-dom";
 
+type Props = {};
+
+// interface file {
+//   name: string;
+//   size: number;
+//   type: string;
+// }
+
 function Register() {
-  //   const [ImageUpload, setImageUpload] = useState<File | string>("");
+  const [selectedImageToUpload, setSelectedImageToUpload] = useState<
+    File | string
+  >("");
+
+  const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || "";
+    setSelectedImageToUpload(file);
+  };
+
+  const submitImageUploadFunc = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formdata = new FormData();
+    formdata.append("image", selectedImageToUpload);
+
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:5001/api/devChat-City/users/imageUpload",
+        requestOptions
+      );
+      const result = await response.json();
+
+      console.log("result :>> ", result);
+    } catch (error) {
+      console.log("Error uploading image :>> ", error);
+    }
+  };
 
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
@@ -14,7 +52,10 @@ function Register() {
         </h1>
       </div>
       <div>
-        <form className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center">
+        <form
+          onSubmit={submitImageUploadFunc}
+          className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center"
+        >
           <div className="flex justify-center h-40 rounded-full my-4">
             <div className="imageContainer w-40 h-40 rounded-full border-2 border-sky-400"></div>
           </div>
@@ -24,9 +65,13 @@ function Register() {
               type="file"
               name="avatar"
               id="avatar"
+              onChange={handleImageUpload}
             />
           </div>
-          <button className="text-sky-400 hover:text-orange-500 py-6 text-lg font-extralight">
+          <button
+            type="submit"
+            className="text-sky-400 hover:text-orange-500 py-6 text-lg font-extralight"
+          >
             Upload Image
             <hr />
           </button>
