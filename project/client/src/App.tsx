@@ -1,14 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 import LandingPage from "./views/LandingPage.tsx";
 import AboutPage from "./views/AboutPage.tsx";
-import Login from './views/Login.tsx';
-import Register from './views/Register.tsx';
-import './App.css'
-
-
+import Login from "./views/Login.tsx";
+import Register from "./views/Register.tsx";
+import "./App.css";
 
 function App() {
-
   return (
     <Routes>
       <Route path="/devChat-City/api" element={<LandingPage />} />
@@ -19,4 +16,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
