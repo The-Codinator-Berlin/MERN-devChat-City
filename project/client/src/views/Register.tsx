@@ -33,6 +33,10 @@ function Register() {
     setSelectedImageToUpload(file);
   };
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log([e.target.name], e.target.value);
+  };
+
   //This async function triggers when the upload image button is clicked and a POST request is made to cloudinary.
   //If this is successful it updates the avatar property of the newUser state witht he URL of the image.
   const submitImageUploadFunc = async (e: FormEvent<HTMLFormElement>) => {
@@ -99,24 +103,27 @@ function Register() {
           <div className="flex flex-col sm:flex-row justify-around text-black">
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="userName"
+              type="text"
               name="userName"
               id="userName"
               placeholder="Username..."
+              onChange={handleInputChange}
             />
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="email"
+              type="text"
               name="email"
               id="email"
               placeholder="email..."
+              onChange={handleInputChange}
             />
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="password"
+              type="text"
               name="password"
               id="password"
               placeholder="Password..."
+              onChange={handleInputChange}
             />
             <div className="flex justify-center sm:flex items-center">
               <button
