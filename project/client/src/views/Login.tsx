@@ -6,7 +6,7 @@ function Login() {
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
       <div className="flex-col flex justify-center items-center sm:flex-col-center slide-in h-1/3">
-        <h1 className="text-center font-Monoton sm:text-6xl text-4xl mb-2">
+        <h1 className="text-center font-Monoton sm:text-6xl text-5xl mb-2">
           Login
         </h1>
         <div>
@@ -18,7 +18,7 @@ function Login() {
 
       <div>
         <form className="flex justify-center sm:flex-col h-15">
-          <div className="flex flex-col sm:flex-row justify-around text-black">
+          <div className="flex flex-col sm:flex-row justify-evenly text-black">
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="usernameEmail"
@@ -33,15 +33,15 @@ function Login() {
               id="password"
               placeholder="password..."
             />
-            <div className="flex justify-center sm:flex items-center">
-              <button
-                className="text-sky-400 hover:text-orange-500 text-lg font-extralight"
-                type="submit"
-              >
-                Log me in!
-                <hr />
-              </button>
-            </div>
+          </div>
+          <div className="flex justify-center sm:flex items-center">
+            <button
+              className="text-sky-400 hover:text-orange-500 text-2xl font-extralight"
+              type="submit"
+            >
+              Log me in!
+              <hr />
+            </button>
           </div>
         </form>
       </div>
