@@ -27,7 +27,7 @@ function Login() {
               placeholder="username/email..."
             />
             <input
-              className="bg-orange-500 w-60 h-10 my-2 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
+              className="bg-orange-500 w-60 h-10 my-4 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="password"
               name="password"
               id="password"
