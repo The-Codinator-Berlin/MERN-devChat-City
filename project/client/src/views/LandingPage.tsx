@@ -22,7 +22,7 @@ const LandingPage = () => {
         </button>
       </div>
       <br />
-      <h6 className="font-poppins font-extralight text-xs text-sky-400">
+      <h6 className="font-poppins font-extralight text-md text-sky-400">
         Designed and developed by{" "}
         <Link to="/devChat-City/api/about">
           <span className="text-emerald-400 hover:text-orange-500 hover:text-lg">
