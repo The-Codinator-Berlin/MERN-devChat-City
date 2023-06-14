@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 type Props = {};
 
 interface user {
-  name: string;
   userName: string;
   email: string;
   password: string;
@@ -21,7 +20,6 @@ function Register() {
 
   // State created for new user which will be empty strings as initial state
   const [newUser, setNewUser] = useState<user>({
-    name: "",
     userName: "",
     email: "",
     password: "",
@@ -62,7 +60,7 @@ function Register() {
   };
 
   return (
-    <div className="flex flex-col justify-around min-h-screen bg-black text-white">
+    <div className="flex flex-col justify-around min-h-screen bg-black text-white overscroll-contain">
       <div className="flex justify-center items-center sm:flex-col-center slide-in h-1/3">
         <h1 className="text-center font-Monoton sm:text-6xl text-5xl mt-6 mb-6">
           Register
