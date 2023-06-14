@@ -14,10 +14,12 @@ interface user {
 }
 
 function Register() {
+  // Handling state when file is selected with the choose file button
   const [selectedImageToUpload, setSelectedImageToUpload] = useState<
     File | string
   >("");
 
+  // State created for new user which will be empty strings as initial state
   const [newUser, setNewUser] = useState<user>({
     name: "",
     userName: "",
@@ -26,11 +28,15 @@ function Register() {
     avatar: "",
   });
 
+  //This function is triggered when a file is selected using the file input field.
+  // It extracts the selected file from the event and updates the selectedImageToUpload state accordingly.
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || "";
     setSelectedImageToUpload(file);
   };
 
+  //This async function triggers when the upload image button is clicked and a POST request is made to cloudinary.
+  //If this is successful it updates the avatar property of the newUser state witht he URL of the image.
   const submitImageUploadFunc = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formdata = new FormData();
@@ -67,6 +73,8 @@ function Register() {
           onSubmit={submitImageUploadFunc}
           className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center"
         >
+          //NOTE - If newUser has information containing a string for the avatar
+          in the state it is then displayed
           {newUser && (
             <div className="flex justify-center h-40 w-40 rounded-full my-4 imageContainer border-2 border-sky-400">
               <img className="rounded-full" src={newUser.avatar} />
