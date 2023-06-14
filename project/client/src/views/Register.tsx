@@ -20,7 +20,7 @@ function Register() {
           </div>
           <div className="flex-col py-4">
             <input
-              className="h-7 bg-green-600 rounded-full font-Poppins font-light"
+              className="h-7 bg-emerald-500 rounded-full font-Poppins font-light"
               type="file"
               name="avatar"
               id="avatar"
@@ -34,21 +34,21 @@ function Register() {
         <form className="flex justify-center sm:flex-col h-15">
           <div className="flex flex-col sm:flex-row justify-around text-black">
             <input
-              className="bg-orange-500 w-60 h-10 my-4  rounded-full text-center placeholder-red-700"
+              className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="userName"
               name="userName"
               id="userName"
               placeholder="Username..."
             />
             <input
-              className="bg-orange-500 w-60 h-10 my-4  rounded-full text-center placeholder-red-700"
+              className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="email"
               name="email"
               id="email"
               placeholder="email..."
             />
             <input
-              className="bg-orange-500 w-60 h-10 my-4  rounded-full text-center placeholder-red-700"
+              className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="password"
               name="password"
               id="password"
@@ -73,7 +73,7 @@ function Register() {
           alt="Image"
         />
       </div>
-      <div className="flex justify-around text-emerald-400 font-extralight text-lg py-4">
+      <div className="flex justify-around text-emerald-500 font-extralight text-lg py-4">
         <Link to="/devChat-City/api" className="hover:text-amber-200">
           Back to the start
           <hr />
