@@ -33,8 +33,10 @@ function Register() {
     setSelectedImageToUpload(file);
   };
 
+  //Handling when user inputs characters in inputs and stores in the setNewUser state variable when submitted.
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log([e.target.name], e.target.value);
+    // console.log([e.target.name], e.target.value);
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
   //This async function triggers when the upload image button is clicked and a POST request is made to cloudinary.
@@ -63,6 +65,40 @@ function Register() {
     }
   };
 
+  const RegisterUser = async () => {
+    console.log(newUser);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("userName", newUser.userName);
+    urlencoded.append("email", newUser.email);
+    urlencoded.append("password", newUser.password);
+    urlencoded.append(
+      "avatar",
+      newUser.avatar
+        ? newUser.avatar
+        : "https://res.cloudinary.com/dtoj5xx0u/image/upload/v1686578955/devChat-City_imageUpload/twelz2j6lbugworzw5lj.jpg"
+    );
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:5001/api/devChat-City/users/register",
+        requestOptions
+      );
+      const result = await response.json();
+      console.log("result", result);
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
+  };
+  RegisterUser();
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white overscroll-contain">
       <div className="flex justify-center items-center sm:flex-col-center slide-in h-1/3">
