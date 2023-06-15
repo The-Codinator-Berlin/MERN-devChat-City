@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, registerUser } from "../controller/usersController.js";
+import { getAllUsers, loginUser, registerUser } from "../controller/usersController.js";
 import { imageUpload } from "../controller/usersController.js"
 import multerUpload from "../middleware/multer.js";
 
@@ -11,6 +11,7 @@ userRoute.get("/all", getAllUsers);
 
 //Post requests to MongoDB
 userRoute.post("/register", registerUser);
+userRoute.post("/login", loginUser);
 userRoute.post("/imageUpload", multerUpload.single("image"), imageUpload);
 
 export default userRoute;
