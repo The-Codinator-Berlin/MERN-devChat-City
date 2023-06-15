@@ -18,6 +18,16 @@ function Register() {
     File | string
   >("");
 
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+
+  const [emailValidMessage, setEmailValidMessage] = useState<string>();
+  const [emailInValidMessage, setEmailInValidMessage] = useState<string>();
+  const [passwordInValidMessage, setPasswordInValidMessage] =
+    useState<string>();
+  const [passwordValidMessage, setPasswordValidMessage] = useState<string>();
+
   // State created for new user which will be empty strings as initial state
   const [newUser, setNewUser] = useState<user>({
     userName: "",
@@ -29,14 +39,52 @@ function Register() {
   //This function is triggered when a file is selected using the file input field.
   // It extracts the selected file from the event and updates the selectedImageToUpload state accordingly.
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || "";
+    const file =
+      e.target.files?.[0] ||
+      "https://res.cloudinary.com/dtoj5xx0u/image/upload/v1686578955/devChat-City_imageUpload/twelz2j6lbugworzw5lj.jpg";
     setSelectedImageToUpload(file);
   };
 
   //Handling when user inputs characters in inputs and stores in the setNewUser state variable when submitted.
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // console.log([e.target.name], e.target.value);
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+  const handleemailInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setNewUser({ ...newUser, [e.target.name]: inputValue });
+
+    if (
+      inputValue.includes("@") &&
+      inputValue.includes(".") &&
+      inputValue.includes(".com") &&
+      inputValue.length >= 11
+    ) {
+      setEmailValidMessage("Email is valid!");
+      setEmailInValidMessage(""); // Clear any previous invalid email message
+    } else {
+      setEmailInValidMessage("Please enter a valid email..");
+      setEmailValidMessage("");
+    }
+  };
+
+  const handlePasswordInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setNewUser({ ...newUser, [e.target.name]: inputValue });
+    setPassword(inputValue);
+
+    if (password.length < 8) {
+      setPasswordValidMessage("");
+      setPasswordInValidMessage("Password should be 8 or more Characters!");
+    } else if (password.length === 0) {
+      setPasswordInValidMessage("");
+      setPasswordInValidMessage("");
+    } else if (password.length === 8) {
+      setPasswordInValidMessage("");
+      setPasswordValidMessage("This password is strong!");
+    }
+  };
+
+  const handleInputUserChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setNewUser({ ...newUser, [e.target.name]: inputValue });
+    setUserName(inputValue);
   };
 
   //This async function triggers when the upload image button is clicked and a POST request is made to cloudinary.
@@ -103,7 +151,7 @@ function Register() {
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white overscroll-contain">
       <div className="flex justify-center items-center sm:flex-col-center slide-in h-1/3">
-        <h1 className="text-center font-Monoton sm:text-6xl text-5xl mt-6 mb-6">
+        <h1 className="text-center font-Monoton sm:text-6xl text-5xl mt-6 mb-3">
           Register
         </h1>
       </div>
@@ -136,6 +184,16 @@ function Register() {
             <hr />
           </button>
         </form>
+        <div>
+          <div className="flex justify-center text-center">
+            <div className="flex-col items-center justify-center py-3">
+              <h5 className="text-emerald-500 px-2">{emailValidMessage}</h5>
+              <h5 className="text-red-500 px-2">{emailInValidMessage}</h5>
+              <h5 className="text-emerald-500 px-2">{passwordValidMessage}</h5>
+              <h5 className="text-red-500 px-2">{passwordInValidMessage}</h5>
+            </div>
+          </div>
+        </div>
         <form
           className="flex justify-center sm:flex-col h-15"
           onSubmit={RegisterUser}
@@ -147,24 +205,27 @@ function Register() {
               name="userName"
               id="userName"
               placeholder="Username..."
-              onChange={handleInputChange}
+              onChange={handleInputUserChange}
             />
-            <input
-              className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="text"
-              name="email"
-              id="email"
-              placeholder="email..."
-              onChange={handleInputChange}
-            />
+            <div>
+              <input
+                className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
+                type="text"
+                name="email"
+                id="email"
+                placeholder="email..."
+                onChange={handleemailInputChange}
+              />
+            </div>
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="text"
               name="password"
               id="password"
               placeholder="Password..."
-              onChange={handleInputChange}
+              onChange={handlePasswordInputChange}
             />
+
             <div className="flex justify-center sm:flex items-center">
               <button
                 className="text-sky-400 hover:text-orange-500 text-lg font-extralight"
@@ -197,5 +258,4 @@ function Register() {
     </div>
   );
 }
-
 export default Register;
