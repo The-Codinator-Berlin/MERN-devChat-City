@@ -65,7 +65,8 @@ function Register() {
     }
   };
 
-  const RegisterUser = async () => {
+  const RegisterUser = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     console.log(newUser);
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -93,12 +94,12 @@ function Register() {
         requestOptions
       );
       const result = await response.json();
-      console.log("result", result);
+      console.log("result :>>", result);
     } catch (error) {
       console.log("error :>> ", error);
     }
   };
-  RegisterUser();
+
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white overscroll-contain">
       <div className="flex justify-center items-center sm:flex-col-center slide-in h-1/3">
@@ -135,7 +136,10 @@ function Register() {
             <hr />
           </button>
         </form>
-        <form className="flex justify-center sm:flex-col h-15">
+        <form
+          className="flex justify-center sm:flex-col h-15"
+          onSubmit={RegisterUser}
+        >
           <div className="flex flex-col sm:flex-row justify-around text-black">
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
