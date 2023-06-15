@@ -31,7 +31,6 @@ const startServer = () => {
 const loadRoutes = () => {
   app.use("/api/devChat-City/posts", postsRoute);
   app.use("/api/devChat-City/users", usersRoute);
-  app.use("/api/devChat-City/users/register", usersRoute);
 };
 
 const connectMongoDB = async () => {
