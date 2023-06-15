@@ -67,6 +67,7 @@ const registerUser = async (request, response) => {
                     });
                     try {
                         //NOTE - 200 refers to a successful response
+                        const savedNewUser = await newUser.save();
                         response.status(200).json({
                             message:
                                 "The registration information has been successfully saved to the database!",
