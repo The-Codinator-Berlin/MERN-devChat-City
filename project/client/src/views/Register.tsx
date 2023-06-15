@@ -69,7 +69,7 @@ function Register() {
     setNewUser({ ...newUser, [e.target.name]: inputValue });
     setPassword(inputValue);
 
-    if (password.length < 8) {
+    if (password.length < 7) {
       setPasswordValidMessage("");
       setPasswordInValidMessage("Password should be 8 or more Characters!");
     } else if (password.length === 0) {
