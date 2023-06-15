@@ -15,4 +15,10 @@ const hashedPassword = async (userPassword) => {
     }
 };
 
-export { hashedPassword };
+const verifyUserByPassword = async (userPassword, storedPassword) => {
+    const verifyToken = bcrypt.compare(userPassword, storedPassword,);
+
+    return verifyToken
+};
+
+export { hashedPassword, verifyUserByPassword };
