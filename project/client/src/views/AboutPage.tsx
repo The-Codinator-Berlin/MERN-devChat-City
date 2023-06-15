@@ -68,6 +68,15 @@ function AboutPage() {
           https://expressjs.com/
         </a>
         <br />
+        <br />
+        Express-validator:{" "}
+        <a
+          className="hover:text-orange-500"
+          href="https://www.npmjs.com/package/express-validator"
+        >
+          https://www.npmjs.com/package/express-validator
+        </a>
+        <br />
         <br /> React:{" "}
         <a className="hover:text-orange-500" href="https://react.dev/">
           https://react.dev/
