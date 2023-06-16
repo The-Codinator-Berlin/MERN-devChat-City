@@ -11,6 +11,11 @@ interface LoginCredentials {
 function Login() {
   const navigate = useNavigate();
 
+  const [unsuccessfulLog, setUnsuccessfulLog] = useState<string>("");
+  const [unsuccessfulLog2, setUnsuccessfulLog2] = useState<string>("");
+  const [unsuccessfulLog3, setUnsuccessfulLog3] = useState<string>("");
+  const [unsuccessfulLog4, setUnsuccessfulLog4] = useState<string>("");
+
   const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({
     email: "",
     password: "",
@@ -54,7 +59,15 @@ function Login() {
           localStorage.setItem("token", token);
           navigate("/devChat-City/api/userprofile");
         }
+
         console.log("result :>> ", result);
+      } else {
+        setUnsuccessfulLog("Your Login was unsuccessful...");
+        setUnsuccessfulLog2("please check username and password");
+        setUnsuccessfulLog3("or");
+        setUnsuccessfulLog4(
+          "consider registering a free account if you don't have one!"
+        );
       }
     } catch (error) {
       console.log("Error during login:", error);
@@ -93,32 +106,56 @@ function Login() {
           onSubmit={submitLoginFunction}
           className="flex justify-center sm:flex-col h-15"
         >
-          <div className="flex flex-col sm:flex-row justify-evenly text-black">
-            <input
-              className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="email"
-              name="email"
-              id="loginEmail"
-              placeholder="email..."
-              onChange={handleInputChange}
-            />
-            <input
-              className="bg-orange-500 w-60 h-10 my-4 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="password"
-              name="password"
-              id="loginPassword"
-              placeholder="password..."
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="flex justify-center sm:flex items-center">
-            <button
-              className="text-sky-400 hover:text-orange-500 text-2xl font-extralight"
-              type="submit"
-            >
-              Log me in!
-              <hr />
-            </button>
+          <div className="flex-row justify-center">
+            <div className="flex flex-col sm:flex-row justify-evenly text-black">
+              <div className="flex justify-center">
+                <input
+                  className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
+                  type="email"
+                  name="email"
+                  id="loginEmail"
+                  placeholder="email..."
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="flex justify-center">
+                <input
+                  className="bg-orange-500 w-60 h-10 my-4 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
+                  type="password"
+                  name="password"
+                  id="loginPassword"
+                  placeholder="password..."
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className="flex justify-center sm:flex items-center">
+              <div className="flex-col items-center">
+                <div className="flex justify-center mb-6">
+                  <button
+                    className="text-sky-400 hover:text-orange-500 text-2xl font-extralight"
+                    type="submit"
+                  >
+                    Log me in!
+                    <hr />
+                  </button>
+                </div>
+
+                <div className="flex-col text-center mx-4">
+                  {unsuccessfulLog &&
+                    unsuccessfulLog2 &&
+                    unsuccessfulLog3 &&
+                    unsuccessfulLog4 && (
+                      <>
+                        <h5 className="text-red-500">{unsuccessfulLog}</h5>
+                        <h5 className="text-red-500">{unsuccessfulLog2}</h5>
+                        <h5 className="text-red-500">{unsuccessfulLog3}</h5>
+                        <h5 className="text-red-500">{unsuccessfulLog4}</h5>
+                      </>
+                    )}
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>
