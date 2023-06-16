@@ -1,8 +1,31 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import devChatLogo from "../assets/devChatLogo.jpeg";
 import "../index.css";
 import { Link } from "react-router-dom";
 
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
 function Login() {
+  const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLoginCredentials({
+      ...loginCredentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const submitLoginFunction = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log("loginCredentials :>> ", loginCredentials);
+  };
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
       <div className="flex-col flex justify-center items-center sm:flex-col-center slide-in h-1/3">
@@ -17,14 +40,18 @@ function Login() {
       </div>
 
       <div>
-        <form className="flex justify-center sm:flex-col h-15">
+        <form
+          onSubmit={submitLoginFunction}
+          className="flex justify-center sm:flex-col h-15"
+        >
           <div className="flex flex-col sm:flex-row justify-evenly text-black">
             <input
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
-              type="usernameEmail"
-              name="usernameEmail"
-              id="usernameEmail"
-              placeholder="username/email..."
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email..."
+              onChange={handleInputChange}
             />
             <input
               className="bg-orange-500 w-60 h-10 my-4 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
@@ -32,6 +59,7 @@ function Login() {
               name="password"
               id="password"
               placeholder="password..."
+              onChange={handleInputChange}
             />
           </div>
           <div className="flex justify-center sm:flex items-center">
