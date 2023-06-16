@@ -3,6 +3,7 @@ import LandingPage from "./views/LandingPage.tsx";
 import AboutPage from "./views/AboutPage.tsx";
 import Login from "./views/Login.tsx";
 import Register from "./views/Register.tsx";
+import UserProfile from "./views/UserProfile.tsx";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route path="/devChat-City/api/about" element={<AboutPage />} />
       <Route path="/devChat-City/api/login" element={<Login />} />
       <Route path="/devChat-City/api/register" element={<Register />} />
+      <Route path="/devChat-City/api/userprofile" element={<UserProfile />} />
     </Routes>
   );
 }
