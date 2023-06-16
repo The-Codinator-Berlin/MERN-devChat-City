@@ -9,7 +9,7 @@ const NavigationBar = (props: Props) => {
     <div className="text-white ]">
       <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 md:text-lg">
         <div className="hover:text-emerald-400 text-orange-500">
-          <Link>myProfile</Link>
+          <Link to={"/devChat-City/api/userProfile"}>myProfile</Link>
           <hr className="invisible sm:visible" />
         </div>
         <div className="hover:text-red-400 text-orange-500">
