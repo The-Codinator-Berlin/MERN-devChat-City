@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import devChatLogo from "../assets/devChatLogo.jpeg";
 import "../index.css";
 import { Link, redirect } from "react-router-dom";
@@ -46,12 +46,31 @@ function Login() {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("result:", result);
+        const { token, user, message } = result;
+
+        if (token) {
+          localStorage.setItem("token", token);
+        }
+        console.log("result :>> ", result);
       }
     } catch (error) {
       console.log("Error during login:", error);
     }
   };
+
+  const userStatusfromToken = () => {
+    const storedToken = localStorage.getItem("token");
+
+    if (storedToken) {
+      console.log("%cUser logged in! :>>", "color:green");
+    } else {
+      console.log("%cUser is logged out! :>>", "color:red");
+    }
+  };
+
+  useEffect(() => {
+    userStatusfromToken();
+  }, []);
 
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
