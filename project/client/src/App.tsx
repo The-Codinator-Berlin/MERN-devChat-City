@@ -6,6 +6,7 @@ import Register from "./views/Register.tsx";
 import UserProfile from "./views/UserProfile.tsx";
 import "./App.css";
 import Loading from "./components/loading/LoadingOnLog.tsx";
+import DevChat from "./views/devChat.tsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/devChat-City/api/login" element={<Login />} />
       <Route path="/devChat-City/api/register" element={<Register />} />
       <Route path="/devChat-City/api/userProfile" element={<UserProfile />} />
+      <Route path="/devChat-City/api/devchat" element={<DevChat />} />
       <Route path="/devChat-City/api/loading" element={<Loading />} />
     </Routes>
   );
