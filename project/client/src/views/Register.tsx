@@ -69,13 +69,13 @@ function Register() {
     setNewUser({ ...newUser, [e.target.name]: inputValue });
     setPassword(inputValue);
 
-    if (password.length < 7) {
+    if (password.length < 3) {
       setPasswordValidMessage("");
       setPasswordInValidMessage("Password should be 8 or more Characters!");
     } else if (password.length === 0) {
       setPasswordInValidMessage("");
       setPasswordInValidMessage("");
-    } else if (password.length === 8) {
+    } else if (password.length === 7) {
       setPasswordInValidMessage("");
       setPasswordValidMessage("This password is strong!");
     }
