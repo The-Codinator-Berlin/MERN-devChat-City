@@ -57,7 +57,7 @@ function Login() {
 
         if (token) {
           localStorage.setItem("token", token);
-          navigate("/devChat-City/api/userprofile");
+          navigate("/devChat-City/api/loading");
         }
 
         console.log("result :>> ", result);
