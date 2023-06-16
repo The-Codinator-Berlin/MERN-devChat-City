@@ -22,7 +22,7 @@ const NavigationBar = (props: Props) => {
         </div>
 
         <div className="text-orange-500">
-          <Link>devChat-City</Link>
+          <Link to={"/devChat-City/api/devchat"}>devChat-City</Link>
           <hr className="invisible sm:visible" />
         </div>
         <div className="text-lg text-orange-500">
