@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import devChatLogo from "../assets/devChatLogo.jpeg";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 interface LoginCredentials {
   email: string;
@@ -21,11 +21,38 @@ function Login() {
     });
   };
 
-  const submitLoginFunction = (e: FormEvent<HTMLFormElement>) => {
+  const submitLoginFunction = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("loginCredentials :>> ", loginCredentials);
+    const myHeader = new Headers();
+    myHeader.append("Content-Type", "application/x-www-form-urlencoded");
+
+    const urlEncoded = new URLSearchParams();
+    urlEncoded.append("email", loginCredentials.email);
+    urlEncoded.append("password", loginCredentials.password);
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeader,
+      body: urlEncoded,
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:5001/api/devChat-City/users/login",
+        requestOptions
+      );
+      console.log("response", response);
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("result:", result);
+      }
+    } catch (error) {
+      console.log("Error during login:", error);
+    }
   };
+
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
       <div className="flex-col flex justify-center items-center sm:flex-col-center slide-in h-1/3">
@@ -49,7 +76,7 @@ function Login() {
               className="bg-orange-500 w-60 h-10 my-4 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="email"
               name="email"
-              id="email"
+              id="loginEmail"
               placeholder="email..."
               onChange={handleInputChange}
             />
@@ -57,7 +84,7 @@ function Login() {
               className="bg-orange-500 w-60 h-10 my-4 mb-6 hover:bg-emerald-500  rounded-full text-center placeholder-red-700"
               type="password"
               name="password"
-              id="password"
+              id="loginPassword"
               placeholder="password..."
               onChange={handleInputChange}
             />
