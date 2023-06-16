@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import devChatLogo from "../assets/devChatLogo.jpeg";
 import "../index.css";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 interface LoginCredentials {
   email: string;
@@ -9,6 +9,8 @@ interface LoginCredentials {
 }
 
 function Login() {
+  const navigate = useNavigate();
+
   const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({
     email: "",
     password: "",
@@ -50,6 +52,7 @@ function Login() {
 
         if (token) {
           localStorage.setItem("token", token);
+          navigate("/devChat-City/api/userprofile");
         }
         console.log("result :>> ", result);
       }
