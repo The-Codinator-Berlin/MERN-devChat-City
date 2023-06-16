@@ -7,36 +7,49 @@ type Props = {};
 function UserProfile() {
   return (
     <div className="bg-black text-white">
-      <div className="h-screen">
+      <div className="h-[100vh]  sm:h-screen border-y-[2px] border-white">
         <div className="flex flex-row">
           <div className="flex flex-row flex-wrap justify-center">
             <div className="p-2">
+              <h1 className="text-2xl font-Monoton sm:text-5xl">myProfile</h1>
+              <h1 className="text-2xl font-Monoton sm:text-5xl rotate-180	">
+                myProfile
+              </h1>
+            </div>
+            <div className="p-2 invisible sm:visible">
               <h1 className="font-Monoton text-5xl">myProfile</h1>
               <h1 className="font-Monoton text-5xl rotate-180	">myProfile</h1>
             </div>
-            <div className="p-2">
-              <h1 className="font-Monoton text-5xl">myProfile</h1>
-              <h1 className="font-Monoton text-5xl rotate-180	">myProfile</h1>
-            </div>
-            <div className="border- border-white w-full mb-4">
+            <div className=" w-full mb-4">
               <NavigationBar />
             </div>
             <div className="w-full">
               {/* avatar box/ username... ------------>*/}
-              <div className="border-2 border-white h-40 w-full flex justify-around [align-items:center]">
+              <div className="border-y-[0.1em] border-white h-40 w-full flex justify-around [align-items:center]">
                 <img
-                  className="w-[8em] h-[8em] rounded-b-full"
+                  className="w-[8em] h-[8em] border-white border-[0.1em] rounded-full"
                   src={avatar}
                   alt="Image"
                 />
+                <form>
+                  <div className="flex flex-col">
+                    <input
+                      className="h-7 bg-emerald-500 rounded-full font-Poppins font-light"
+                      type="file"
+                      name="avatar"
+                      id="avatar"
+                      // onChange={}
+                    />
 
-                <button
-                  type="submit"
-                  className="text-sky-400 hover:text-orange-500 py-6 text-lg font-extralight"
-                >
-                  Change Avatar
-                  <hr />
-                </button>
+                    <button
+                      type="submit"
+                      className="text-sky-400 hover:text-orange-500 py-6 text-lg font-extralight"
+                    >
+                      Change Avatar
+                      <hr />
+                    </button>
+                  </div>
+                </form>
 
                 <div className="border-2 border-white flex flex-row justify-between px-8 [align-items:center]">
                   <div className="text-sky-400">
