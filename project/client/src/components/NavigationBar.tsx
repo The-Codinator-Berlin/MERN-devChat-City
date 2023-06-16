@@ -7,27 +7,27 @@ type Props = {};
 const NavigationBar = (props: Props) => {
   return (
     <div className="text-white ]">
-      <div className="sm:flex justify-between font-Poppins font-extralight mx-2 md:text-lg">
+      <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 md:text-lg">
         <div className="hover:text-emerald-400 text-orange-500">
           <Link>myProfile</Link>
-          <hr />
+          <hr className="invisible sm:visible" />
         </div>
         <div className="hover:text-red-400 text-orange-500">
           <Link>Saved_Bits</Link>
-          <hr />
+          <hr className="invisible sm:visible" />
         </div>
-        <div className="text-orange-500">
+        <div className="text-red-500">
           <Link>Logout</Link>
-          <hr />
+          <hr className="invisible sm:visible" />
         </div>
 
         <div className="text-orange-500">
           <Link>devChat-City</Link>
-          <hr />
+          <hr className="invisible sm:visible" />
         </div>
         <div className="text-lg text-orange-500">
           <Link>?</Link>
-          <hr />
+          <hr className="invisible sm:visible" />
         </div>
       </div>
     </div>
