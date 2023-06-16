@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import devChatLogo from "../assets/devChatLogo.jpeg";
+import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
 
 const LandingPage = () => {

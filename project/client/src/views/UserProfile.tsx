@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
-import avatar from "../assets/avatar_default.jpeg";
+import avatar from "../assets/pictures/avatar_default.jpeg";
 
 type Props = {};
 

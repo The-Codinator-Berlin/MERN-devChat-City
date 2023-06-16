@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import devChatLogo from "../assets/devChatLogo.jpeg";
+import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
 import { Link, redirect, useNavigate } from "react-router-dom";
 
