@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
 import avatar from "../assets/pictures/avatar_default.jpeg";
+import logo from "../assets/pictures/devChatLogo.jpeg";
 
 type Props = {};
 
@@ -16,6 +17,7 @@ function UserProfile() {
                 myProfile
               </h1>
             </div>
+
             <div className="p-2 invisible sm:visible">
               <h1 className="font-Monoton text-5xl">myProfile</h1>
               <h1 className="font-Monoton text-5xl rotate-180	">myProfile</h1>
@@ -50,7 +52,13 @@ function UserProfile() {
                     </button>
                   </div>
                 </form>
-
+                <div className="flex justify-center">
+                  <img
+                    className="w-[8em] h-[8em] rounded-b-full"
+                    src={logo}
+                    alt="Image"
+                  />
+                </div>
                 <div className="border-2 border-white flex flex-row justify-between px-8 [align-items:center]">
                   <div className="text-sky-400">
                     <h3>{"<userName/>"}:</h3>
