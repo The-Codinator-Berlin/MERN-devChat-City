@@ -3,11 +3,6 @@ import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
 import { Link, redirect, useNavigate } from "react-router-dom";
 
-interface LoginCredentials {
-  email: string;
-  password: string;
-}
-
 function Login() {
   const navigate = useNavigate();
 
