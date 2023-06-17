@@ -22,7 +22,7 @@ function Register() {
   const [passwordValidMessage, setPasswordValidMessage] = useState<string>();
 
   // State created for new user which will be empty strings as initial state
-  const [newUser, setNewUser] = useState<user>({
+  const [newUser, setNewUser] = useState<RegisterCredentials>({
     userName: "",
     email: "",
     password: "",
