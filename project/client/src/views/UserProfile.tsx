@@ -3,7 +3,7 @@ import NavigationBar from "../components/NavigationBar";
 import avatar from "../assets/pictures/avatar_default.jpeg";
 import logo from "../assets/pictures/devChatLogo.jpeg";
 
-type Props = {};
+// type Props = {};
 
 function UserProfile() {
   return (
