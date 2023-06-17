@@ -3,14 +3,7 @@ import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-interface user {
-  userName: string;
-  email: string;
-  password: string;
-  avatar: string;
-}
+// type Props = {};
 
 function Register() {
   // Handling state when file is selected with the choose file button
