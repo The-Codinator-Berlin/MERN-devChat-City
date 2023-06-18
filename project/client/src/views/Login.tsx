@@ -6,6 +6,13 @@ import { Link, redirect, useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
 
+  //should be in authContext ideally
+  const [user, setUser] = useState<User | string>({
+    userName: "",
+    email: "",
+    avatar: "",
+    token: "string | boolean,",
+  });
   const [unsuccessfulLog, setUnsuccessfulLog] = useState<string>("");
   const [unsuccessfulLog2, setUnsuccessfulLog2] = useState<string>("");
   const [unsuccessfulLog3, setUnsuccessfulLog3] = useState<string>("");
@@ -47,11 +54,12 @@ function Login() {
       console.log("response", response);
 
       if (response.ok) {
-        const result = await response.json();
+        const result: FetchedLoginResult = await response.json();
         const { token, user, message } = result;
 
         if (token) {
           localStorage.setItem("token", token);
+          setUser(result.user);
           navigate("/devChat-City/api/loading");
         }
 
@@ -81,7 +89,7 @@ function Login() {
 
   useEffect(() => {
     userStatusfromToken();
-  }, []);
+  }, [user]);
 
   return (
     <div className="flex flex-col justify-around min-h-screen bg-black text-white">
