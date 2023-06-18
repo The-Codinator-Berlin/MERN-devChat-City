@@ -110,7 +110,7 @@ function AboutPage() {
         </a>
         <br />
         <br />
-        Tailwind css:{" "}
+        Bcrypt:{" "}
         <a
           className="hover:text-orange-500"
           href="https://www.npmjs.com/package/bcrypt"
@@ -119,9 +119,15 @@ function AboutPage() {
         </a>
         <br />
         <br />
-        Bcrypt:{" "}
+        Tailwind css:{" "}
         <a className="hover:text-orange-500" href="https://tailwindcss.com/">
           https://tailwindcss.com/
+        </a>
+        <br />
+        <br />
+        Passportjs:{" "}
+        <a className="hover:text-orange-500" href="https://www.passportjs.org/">
+          https://www.passportjs.org/{" "}
         </a>
         <br />
         <br />
