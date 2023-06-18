@@ -157,9 +157,17 @@ const loginUser = async (request, response) => {
             });
           }
         }
-      } catch (error) {}
+      } catch (error) {
+        console.log("Error :>> ", error);
+      }
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error :>> ", error);
+  }
 };
 
-export { getAllUsers, imageUpload, registerUser, loginUser };
+const getUserProfile = async (request, response) => {
+  // console.log("userProfile route is working >>>>>>>>");
+};
+
+export { getAllUsers, imageUpload, registerUser, loginUser, getUserProfile };
