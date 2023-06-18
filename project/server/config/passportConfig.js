@@ -9,18 +9,23 @@ const options = {
   secretOrKey: process.env.SECRET_TOKEN_KEY,
 };
 
-const jwtStrategy = new JwtStrategy(options, function (jwt_payload, done) {
-  usersModel.findOne({ _id: jwt_payload.sub }, function (error, user) {
-    if (error) {
-      return done(error, false);
-    }
+const jwtStrategy = new JwtStrategy(options, async function (
+  jwt_payload,
+  done
+) {
+  try {
+    const user = await usersModel.findOne({ _id: jwt_payload.sub });
+
     if (user) {
+      console.log("\u001b[37m" + "Token verified!");
       return done(null, user);
     } else {
+      console.log("\u001B[31m" + "No user in the database");
       return done(null, false);
-      // or you could create a new account
     }
-  });
+  } catch (error) {
+    return done(error, false);
+  }
 });
 
 const passportStrategy = (passport) => {
