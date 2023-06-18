@@ -1,12 +1,15 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import passportStrategy from "./config/passportConfig.js";
+import cloudinaryConfig from "./config/cloudinary.js";
+import passport from "passport";
 import * as dotenv from "dotenv";
+dotenv.config();
 import postsRoute from "./routes/postsRoute.js";
 import usersRoute from "./routes/usersRoute.js";
-import cloudinaryConfig from "./config/cloudinary.js";
-
-dotenv.config();
+import usersModel from "./models/usersModel.js";
+usersModel;
 
 const app = express();
 
@@ -19,6 +22,7 @@ const addMiddleware = () => {
   );
   app.use(cors());
   cloudinaryConfig();
+  passportStrategy(passport);
 };
 
 const startServer = () => {
