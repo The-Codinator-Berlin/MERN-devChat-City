@@ -7,12 +7,13 @@ import {
 } from "../controller/usersController.js";
 import { imageUpload } from "../controller/usersController.js";
 import multerUpload from "../middleware/multer.js";
+import authenticateJwt from "../middleware/jwtAuth.js";
 
 const userRoute = express.Router();
 
 //Get requests to MongoDB
 userRoute.get("/all", getAllUsers);
-userRoute.get("/userProfile", getUserProfile);
+userRoute.get("/userProfile", authenticateJwt, getUserProfile);
 
 //Post requests to MongoDB
 userRoute.post("/register", registerUser);
