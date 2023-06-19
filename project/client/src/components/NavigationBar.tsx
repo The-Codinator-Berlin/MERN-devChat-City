@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import devChatLogo from "../assets/devChatLogo.jpeg";
 
-type Props = {};
+// type Props = {};
 
-const NavigationBar = (props: Props) => {
+const NavigationBar = () => {
+  // build model that you have to close so that it tells you you ahve been logged out properly
+
+  const [user, setUser] = useState<User | null>({
+    userName: "",
+    email: "",
+    avatar: "",
+    token: "",
+  });
+
+  const logout = () => {
+    const storedToken = localStorage.getItem("token");
+    console.log("ran>>>> :>> ", storedToken);
+    if (storedToken) {
+      localStorage.removeItem("token");
+      // setUser(null);
+      // localStorage.removeItem("token");
+      console.log("logged OUT!");
+    }
+  };
+
   return (
     <div className="text-white ]">
       <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 md:text-lg">
@@ -16,8 +35,11 @@ const NavigationBar = (props: Props) => {
           <Link>Saved_Bits</Link>
           <hr className="invisible sm:visible" />
         </div>
+
         <div className="text-red-500">
-          <Link>Logout</Link>
+          <Link onClick={logout} to="/devChat-City/api">
+            Logout
+          </Link>
           <hr className="invisible sm:visible" />
         </div>
 
