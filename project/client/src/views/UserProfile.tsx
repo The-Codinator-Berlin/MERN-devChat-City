@@ -9,7 +9,7 @@ function UserProfile() {
   return (
     <div className="bg-black text-white">
       <div className="h-[100vh]  sm:h-screen border-y-[2px] border-white">
-        <div className="flex flex-row">
+        <div className="">
           <div className="flex flex-row flex-wrap justify-center">
             <div className="p-2">
               <h1 className="text-2xl font-Monoton sm:text-5xl">myProfile</h1>
@@ -27,7 +27,7 @@ function UserProfile() {
             </div>
             <div className="w-full">
               {/* avatar box/ username... ------------>*/}
-              <div className="border-y-[0.1em] border-white h-40 w-full flex justify-around [align-items:center]">
+              <div className="border-y-[0.1em] border-white sm:h-40 sm:w-full sm:flex sm:justify-around [align-items:center]">
                 <img
                   className="w-[8em] h-[8em] border-white border-[0.1em] rounded-full"
                   src={avatar}
