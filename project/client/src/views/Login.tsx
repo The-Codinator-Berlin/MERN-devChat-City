@@ -83,7 +83,7 @@ function Login() {
     if (storedToken) {
       console.log("%cUser logged in! :>>", "color:green");
     } else {
-      console.log("%cUser is logged out! :>>", "color:red");
+      console.log("%cNo stored token! :>>", "color:red");
     }
   };
 
