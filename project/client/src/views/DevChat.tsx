@@ -37,7 +37,7 @@ function DevChat() {
                     alt="Image"
                   />
                 </div>
-                <div>
+                <div className="flex justify-center sm:flex-col">
                   <div className="py-4">
                     <label className="px-4" htmlFor="general">
                       General
