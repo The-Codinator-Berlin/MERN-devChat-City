@@ -26,28 +26,28 @@ const NavigationBar = () => {
 
   return (
     <div className="text-white ]">
-      <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 md:text-lg">
-        <div className="hover:text-emerald-400 text-orange-500">
+      <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 sm:text-lg">
+        <div className="text-emerald-500 md:hover:text-emerald-400 md:text-orange-500">
           <Link to={"/devChat-City/api/userProfile"}>myProfile</Link>
           <hr className="invisible sm:visible" />
         </div>
-        <div className="hover:text-red-400 text-orange-500">
+        <div className="text-sky-400 md:hover:text-sky-400 md:text-orange-500">
           <Link>Saved_Bits</Link>
           <hr className="invisible sm:visible" />
         </div>
 
-        <div className="text-red-500">
+        <div className="text-red-500 hover:text-amber-200 sm:text-lg">
           <Link onClick={logout} to="/devChat-City/api">
-            Logout
+            LogOut
           </Link>
           <hr className="invisible sm:visible" />
         </div>
 
-        <div className="text-orange-500">
+        <div className="text-amber-200 md:text-orange-500 md:hover:text-white">
           <Link to={"/devChat-City/api/devchat"}>devChat-City</Link>
           <hr className="invisible sm:visible" />
         </div>
-        <div className="text-lg text-orange-500">
+        <div className="text-3xl text-orange-500 hover:text-red-700">
           <Link>?</Link>
           <hr className="invisible sm:visible" />
         </div>
