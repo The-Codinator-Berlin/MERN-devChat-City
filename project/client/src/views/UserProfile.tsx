@@ -8,26 +8,26 @@ import logo from "../assets/pictures/devChatLogo.jpeg";
 function UserProfile() {
   return (
     <div className="bg-black text-white">
-      <div className="h-[100vh]  sm:h-screen border-y-[2px] border-white">
+      <div className="h-[100vh]  md:h-screen border-y-[2px] border-white">
         <div className="">
           <div className="flex flex-row flex-wrap justify-center">
             <div className="p-2">
-              <h1 className="text-2xl font-Monoton sm:text-5xl">myProfile</h1>
-              <h1 className="text-2xl font-Monoton sm:text-5xl rotate-180	">
+              <h1 className="text-2xl font-Monoton md:text-5xl">myProfile</h1>
+              <h1 className="text-2xl font-Monoton md:text-5xl rotate-180	">
                 myProfile
               </h1>
             </div>
 
-            <div className="p-2 invisible sm:visible">
-              <h1 className="font-Monoton text-5xl">myProfile</h1>
-              <h1 className="font-Monoton text-5xl rotate-180	">myProfile</h1>
+            <div className="p-2 invisible md:visible">
+              <h1 className="font-Monoton md:text-5xl">myProfile</h1>
+              <h1 className="font-Monoton md:text-5xl rotate-180	">myProfile</h1>
             </div>
             <div className=" w-full mb-4">
               <NavigationBar />
             </div>
             <div className="w-full">
               {/* avatar box/ username... ------------>*/}
-              <div className="border-y-[0.1em] border-white sm:h-40 sm:w-full sm:flex sm:justify-around [align-items:center]">
+              <div className="md:h-[12em] xl:h-[4] flex flex-wrap border-y-[0.1em] border-white sm:w-full md:flex justify-around [align-items:center]">
                 <img
                   className="w-[8em] h-[8em] border-white border-[0.1em] rounded-full"
                   src={avatar}
@@ -59,7 +59,7 @@ function UserProfile() {
                     alt="Image"
                   />
                 </div>
-                <div className="border-2 border-white flex flex-row justify-between px-8 [align-items:center]">
+                <div className="border-2 border-white flex-col md:flex md:flex-row justify-between md:px-8 [align-items:center]">
                   <div className="text-sky-400">
                     <h3>{"<userName/>"}:</h3>
                     <h3>{"<name/>"}:</h3>
@@ -77,6 +77,9 @@ function UserProfile() {
                 </div>
               </div>
               {/* ---------------------------------------> */}
+              <div className="flex justify-center font-Poppins text-2xl text-amber-200 font-light">
+                <h2>m_y-P_o_s_t_s:</h2>
+              </div>
             </div>
           </div>
         </div>
