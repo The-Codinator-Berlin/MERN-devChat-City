@@ -59,6 +59,7 @@ function DevChat() {
                       type="radio"
                       value="all"
                       name="all"
+                      // checked={value}
                     ></input>
                   </div>
 
@@ -72,10 +73,7 @@ function DevChat() {
                 <div>
                   <div className="flex justify-center flex-col h-[1em] items-center my-12 rounded-full">
                     <div className="w-[19.4.2em] flex justify-center [align-items:center] my-4 rounded-full">
-                      <select
-                        className="text-black bg-emerald-500 rounded-full"
-                        Search-by-common-coding-languages
-                      >
+                      <select className="text-black bg-emerald-500 rounded-full">
                         <option value="filterByLanguage">
                           Filter posts by popular coding languages{" "}
                         </option>
