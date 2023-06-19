@@ -167,7 +167,17 @@ const loginUser = async (request, response) => {
 };
 
 const getUserProfile = async (request, response) => {
-  // console.log("userProfile route is working >>>>>>>>");
+  console.log("userProfile route is working >>>>>>>>");
+
+  if (request.user) {
+    response.status(200).json({
+      user: request.user,
+    });
+  } else {
+    response.status(404).json({
+      errorMessage: "No user in the database!",
+    });
+  }
 };
 
 export { getAllUsers, imageUpload, registerUser, loginUser, getUserProfile };
