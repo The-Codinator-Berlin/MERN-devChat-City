@@ -6,6 +6,7 @@ const UserStatusfromToken = () => {
     return storedToken;
   } else {
     console.log("%cNo stored token! :>>", "color:red");
+    return null;
   }
 };
 
