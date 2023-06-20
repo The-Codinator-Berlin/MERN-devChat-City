@@ -35,7 +35,6 @@ function UserProfile() {
           "http://localhost:5001/api/devChat-City/users/userProfile",
           requestOptions
         );
-        console.log("response :>>>>>>>>> ", response);
 
         if (response.ok) {
           const result: FetchedProfileResult = await response.json();
