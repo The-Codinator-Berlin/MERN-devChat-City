@@ -4,22 +4,10 @@ import { Link } from "react-router-dom";
 // type Props = {};
 
 const NavigationBar = () => {
-  // build model that you have to close so that it tells you you ahve been logged out properly
-
-  const [user, setUser] = useState<User | null>({
-    userName: "",
-    email: "",
-    avatar: "",
-    token: "",
-  });
-
   const logout = () => {
     const storedToken = localStorage.getItem("token");
-    console.log("ran>>>> :>> ", storedToken);
     if (storedToken) {
       localStorage.removeItem("token");
-      // setUser(null);
-      // localStorage.removeItem("token");
       console.log("logged OUT!");
     }
   };
