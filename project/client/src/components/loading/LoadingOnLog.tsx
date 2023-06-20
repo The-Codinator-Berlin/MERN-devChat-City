@@ -7,7 +7,7 @@ function Loading() {
   useEffect(() => {
     setTimeout(() => {
       navigateToUserProfile("/devChat-City/api/userProfile");
-    }, 6500);
+    }, 5500);
   }, []);
 
   return (
