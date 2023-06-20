@@ -14,10 +14,10 @@ function Login() {
     avatar: "",
     token: "string | boolean,",
   });
-  const [unsuccessfulLog, setUnsuccessfulLog] = useState<string>("");
-  const [unsuccessfulLog2, setUnsuccessfulLog2] = useState<string>("");
-  const [unsuccessfulLog3, setUnsuccessfulLog3] = useState<string>("");
-  const [unsuccessfulLog4, setUnsuccessfulLog4] = useState<string>("");
+  // const [unsuccessfulLog, setUnsuccessfulLog] = useState<string>("");
+  // const [unsuccessfulLog2, setUnsuccessfulLog2] = useState<string>("");
+  // const [unsuccessfulLog3, setUnsuccessfulLog3] = useState<string>("");
+  // const [unsuccessfulLog4, setUnsuccessfulLog4] = useState<string>("");
 
   const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({
     email: "",
@@ -66,12 +66,14 @@ function Login() {
 
         console.log("result :>> ", result);
       } else {
-        setUnsuccessfulLog("Your Login was unsuccessful...");
-        setUnsuccessfulLog2("please check username and password");
-        setUnsuccessfulLog3("or");
-        setUnsuccessfulLog4(
-          "consider registering a free account if you don't have one!"
-        );
+        //NOTE - Old error handling
+        // setUnsuccessfulLog("Your Login was unsuccessful...");
+        // setUnsuccessfulLog2("please check username and password");
+        // setUnsuccessfulLog3("or");
+        // setUnsuccessfulLog4(
+        //   "consider registering a free account if you don't have one!"
+        // );
+        navigate("/devChat-City/api/errorRedirectToLogin");
       }
     } catch (error) {
       console.log("Error during login:", error);
@@ -135,7 +137,7 @@ function Login() {
                   </button>
                 </div>
 
-                <div className="flex-col text-center mx-4">
+                {/* <div className="flex-col text-center mx-4">
                   {unsuccessfulLog &&
                     unsuccessfulLog2 &&
                     unsuccessfulLog3 &&
@@ -147,7 +149,7 @@ function Login() {
                         <h5 className="text-red-500">{unsuccessfulLog4}</h5>
                       </>
                     )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
