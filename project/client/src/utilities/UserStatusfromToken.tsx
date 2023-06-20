@@ -1,5 +1,5 @@
 const UserStatusfromToken = () => {
-  const storedToken = localStorage.getItem("token");
+  const storedToken: Token = localStorage.getItem("token");
 
   if (storedToken) {
     console.log("%cUser logged in! :>>", "color:green");

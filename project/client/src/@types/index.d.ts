@@ -12,6 +12,8 @@ interface RegisterCredentials {
   avatar: string
 }
 
+type Token = string | null
+
 interface FetchedUploadedFile {
   avatar: string
 }
