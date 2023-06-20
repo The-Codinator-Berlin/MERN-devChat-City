@@ -1,8 +1,9 @@
 interface User {
   userName: string,
   email: string,
-  avatar: string,
+  avatar?: string,
   token: string
+  gitHub?: string,
 }
 
 interface RegisterCredentials {
@@ -18,10 +19,6 @@ interface FetchedUploadedFile {
   avatar: string
 }
 
-// interface FetchedRegistrationResult{
-
-// }
-
 interface LoginCredentials {
   email: string;
   password: string
@@ -31,6 +28,16 @@ interface FetchedLoginResult {
   message: string,
   user: User,
   token: string
+}
+
+interface FetchError {
+  error: string;
+}
+
+type ResponseError = string | null;
+
+interface FetchedProfileResult {
+  user: User
 }
 
 
