@@ -24,7 +24,6 @@ function Login() {
     e.preventDefault();
     login(loginCredentials.email, loginCredentials.password);
   };
-  console.log("CHECKING UserStatus :>> ", UserStatusfromToken);
   useEffect(() => {
     UserStatusfromToken();
   }, [user]);
