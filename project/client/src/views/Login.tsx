@@ -1,23 +1,12 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
 import { Link, useNavigate } from "react-router-dom";
 import UserStatusfromToken from "../utilities/UserStatusfromToken.tsx";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
-  const navigate = useNavigate();
-
-  //should be in authContext ideally
-  const [user, setUser] = useState<User | string>({
-    userName: "",
-    email: "",
-    avatar: "",
-    token: "string | boolean,",
-  });
-  // const [unsuccessfulLog, setUnsuccessfulLog] = useState<string>("");
-  // const [unsuccessfulLog2, setUnsuccessfulLog2] = useState<string>("");
-  // const [unsuccessfulLog3, setUnsuccessfulLog3] = useState<string>("");
-  // const [unsuccessfulLog4, setUnsuccessfulLog4] = useState<string>("");
+  const { login, user } = useContext(AuthContext);
 
   const [loginCredentials, setLoginCredentials] = useState<LoginCredentials>({
     email: "",
@@ -33,53 +22,9 @@ function Login() {
 
   const submitLoginFunction = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const myHeader = new Headers();
-    myHeader.append("Content-Type", "application/x-www-form-urlencoded");
-
-    const urlEncoded = new URLSearchParams();
-    urlEncoded.append("email", loginCredentials.email);
-    urlEncoded.append("password", loginCredentials.password);
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeader,
-      body: urlEncoded,
-    };
-
-    try {
-      const response = await fetch(
-        "http://localhost:5001/api/devChat-City/users/login",
-        requestOptions
-      );
-      console.log("response", response);
-
-      if (response.ok) {
-        const result: FetchedLoginResult = await response.json();
-        const { token, user, message } = result;
-
-        if (token) {
-          localStorage.setItem("token", token);
-          setUser(result.user);
-          navigate("/devChat-City/api/loading");
-        }
-
-        console.log("result :>> ", result);
-      } else {
-        //NOTE - Old error handling
-        // setUnsuccessfulLog("Your Login was unsuccessful...");
-        // setUnsuccessfulLog2("please check username and password");
-        // setUnsuccessfulLog3("or");
-        // setUnsuccessfulLog4(
-        //   "consider registering a free account if you don't have one!"
-        // );
-        navigate("/devChat-City/api/errorRedirectToLogin");
-      }
-    } catch (error) {
-      console.log("Error during login:", error);
-    }
+    login(loginCredentials.email, loginCredentials.password);
   };
-
+  console.log("CHECKING UserStatus :>> ", UserStatusfromToken);
   useEffect(() => {
     UserStatusfromToken();
   }, [user]);
