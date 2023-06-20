@@ -1,13 +1,14 @@
 import React from "react";
 import NavigationBar from "../components/NavigationBar";
 import logo from "../assets/pictures/devChatLogo.jpeg";
+import PostsCard from "../components/Postscard";
 
 // type Props = {};
 
 function DevChat() {
   return (
     <div className="bg-black text-white">
-      <div className="h-[100vh] sm:h-screen border-y-[2px] border-white">
+      <div className=" sm:h-screen border-y-[2px] border-white">
         <div className="flex flex-row">
           <div className="flex flex-row flex-wrap justify-center">
             <div className="p-2">
@@ -99,6 +100,9 @@ function DevChat() {
                 </div>
               </div>
               {/* ---------------------------------------> */}
+            </div>
+            <div className="w-screen">
+              <PostsCard />
             </div>
           </div>
         </div>
