@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // type Props = {};
 
@@ -20,6 +20,7 @@ function Register() {
   const [passwordInValidMessage, setPasswordInValidMessage] =
     useState<string>();
   const [passwordValidMessage, setPasswordValidMessage] = useState<string>();
+  // const goTo = useNavigate();
 
   // State created for new user which will be empty strings as initial state
   const [newUser, setNewUser] = useState<RegisterCredentials>({
@@ -135,6 +136,8 @@ function Register() {
         requestOptions
       );
       const result = await response.json();
+      //NOTE - Need to creat auth contect so that I can call the login function here and then direct once registered + logged to
+      // goTo("/devChat-City/api/loading");
       console.log("result :>>", result);
     } catch (error) {
       console.log("error :>> ", error);
