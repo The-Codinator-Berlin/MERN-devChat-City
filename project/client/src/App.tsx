@@ -7,6 +7,7 @@ import UserProfile from "./views/UserProfile.tsx";
 import "./App.css";
 import Loading from "./components/loading/LoadingOnLog.tsx";
 import DevChat from "./views/devChat.tsx";
+import ErrorRedirectToLogin from "./components/loading/ErrorRedirectToLogin.tsx";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
       <Route path="/devChat-City/api/userProfile" element={<UserProfile />} />
       <Route path="/devChat-City/api/devchat" element={<DevChat />} />
       <Route path="/devChat-City/api/loading" element={<Loading />} />
+      <Route
+        path="/devChat-City/api/errorRedirectToLogin"
+        element={<ErrorRedirectToLogin />}
+      />
     </Routes>
   );
 }
