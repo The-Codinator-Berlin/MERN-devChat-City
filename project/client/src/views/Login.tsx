@@ -1,7 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import devChatLogo from "../assets/pictures/devChatLogo.jpeg";
 import "../index.css";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserStatusfromToken from "../utilities/UserStatusfromToken.tsx";
 
 function Login() {
   const navigate = useNavigate();
@@ -77,18 +78,8 @@ function Login() {
     }
   };
 
-  const userStatusfromToken = () => {
-    const storedToken = localStorage.getItem("token");
-
-    if (storedToken) {
-      console.log("%cUser logged in! :>>", "color:green");
-    } else {
-      console.log("%cNo stored token! :>>", "color:red");
-    }
-  };
-
   useEffect(() => {
-    userStatusfromToken();
+    UserStatusfromToken();
   }, [user]);
 
   return (
