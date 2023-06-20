@@ -16,7 +16,7 @@ function fileFilter(req, file, cb) {
     extension !== ".jpeg" &&
     extension !== ".JPG" &&
     extension !== ".JPEG" &&
-    extension !== ".PNG" &&
+    extension !== ".PNG"
   ) {
     //NOTE - if it is not any of the extensions allowed, nothing is uploaded!
 
