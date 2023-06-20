@@ -1,46 +1,43 @@
 import mongoose from "mongoose";
 
-
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: false,
+    unique: false,
+  },
 
-    name: {
-        type: String,
-        required: false,
-        unique: false
-    },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
+  github: {
+    type: String,
+    required: false,
+    unique: true,
+  },
 
-    github: {
-        type: String,
-        required: false,
-        unique: true
-    },
+  userName: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    userName: {
-        type: String,
-        required: true,
-        unique: false
-    },
+  password: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    password: {
-        type: String,
-        required: true,
-        unique: false
-    },
+  avatar: {
+    type: String,
+    required: false,
+    unique: false,
+  },
 
-    avatar: {
-        type: String,
-        required: false,
-        unique: false
-    },
-
-    postsArr: { type: mongoose.Schema.Types.ObjectId, ref: "post" },
-
+  postsArr: { type: mongoose.Schema.Types.ObjectId, ref: "post" },
 });
 
 const usersModel = mongoose.model("user", userSchema);
