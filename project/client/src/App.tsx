@@ -11,6 +11,7 @@ import ErrorRedirectToLogin from "./components/loading/ErrorRedirectToLogin.tsx"
 import { AuthProvider } from "./context/AuthContext.tsx";
 import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import ProtectedLoading from "./components/loading/ProtectedLoading.tsx";
+import ProtectedChat from "./routes/ProtectedChat.tsx";
 
 function App() {
   return (
@@ -31,9 +32,9 @@ function App() {
         <Route
           path="/devChat-City/api/devchat"
           element={
-            <ProtectedRoute>
+            <ProtectedChat>
               <DevChat />
-            </ProtectedRoute>
+            </ProtectedChat>
           }
         />
         <Route
