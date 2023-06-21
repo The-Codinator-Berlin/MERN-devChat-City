@@ -1,23 +1,21 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-function ProtectedRoute(props) {
-  const { user } = useContext(AuthContext);
-  const isUserAuth = user !== null;
-  console.log("isUserAuth :>> ", isUserAuth);
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const storedToken: string | null = localStorage.getItem("token");
+  const navigate = useNavigate();
 
-  return (
-    <>
-      {isUserAuth ? (
-        props.children
-      ) : (
-        <>
-          {alert("Please login to access features")}
-          <Navigate to="/devChat-City/api/login" />
-        </>
-      )}
-    </>
-  );
+  useEffect(() => {
+    if (!storedToken) {
+      console.log("%cNot Authorized", "color:red");
+      navigate("/devChat-City/api/protectedLoading");
+    } else {
+      console.log("%cAuthorized", "color:green");
+      navigate("/devChat-City/api/userProfile");
+    }
+  }, [navigate, storedToken]);
+
+  return <>{children}</>;
 }
+
 export default ProtectedRoute;
