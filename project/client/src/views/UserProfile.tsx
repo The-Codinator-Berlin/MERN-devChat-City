@@ -15,6 +15,8 @@ function UserProfile() {
     token: "",
   });
 
+  const [collapse, setCollapse] = useState<true | false>(false);
+
   const [error, setError] = useState<ResponseError>(null);
   const goTo = useNavigate();
 
@@ -89,14 +91,20 @@ function UserProfile() {
                       type="file"
                       name="avatar"
                       id="avatar"
-                      // onChange={}
                     />
 
                     <button
                       type="submit"
-                      className="text-sky-400 hover:text-orange-500 py-6 text-lg font-extralight"
+                      className="text-sky-400 hover:text-amber-200 py-3 text-lg font-extralight"
                     >
                       Change Avatar
+                      <hr />
+                    </button>
+                    <button
+                      type="submit"
+                      className="text-orange-500 hover:text-emerald-500 py-3 text-lg font-extralight"
+                    >
+                      Submit new avatar
                       <hr />
                     </button>
                   </div>
@@ -184,6 +192,30 @@ function UserProfile() {
                       </div>
                     )}
                   </div> */}
+              </div>
+              <div className="flex justify-center border-b-[0.1em] flex-col">
+                <button className="text-sky-400 font-extralight text-lg hover:text-amber-200">
+                  Update my details
+                </button>
+                <div>
+                  <form className="flex justify-center py-4">
+                    <input
+                      className="mx-2 rounded-full text-center text-red-600"
+                      type="text"
+                      placeholder="userName...."
+                    />
+                    <input
+                      className="mx-2 rounded-full text-center text-red-600"
+                      type="text"
+                      placeholder="email...."
+                    />
+                    <input
+                      className="mx-2 rounded-full text-center text-red-600"
+                      type="text"
+                      placeholder="gitHub...."
+                    />
+                  </form>
+                </div>
               </div>
             </div>
             {/* ---------------------------------------> */}
