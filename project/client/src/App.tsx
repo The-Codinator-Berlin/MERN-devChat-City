@@ -10,6 +10,7 @@ import DevChat from "./views/devChat.tsx";
 import ErrorRedirectToLogin from "./components/loading/ErrorRedirectToLogin.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import ProtectedRoute from "./routes/ProtectedRoute.tsx";
+import ProtectedLoading from "./components/loading/ProtectedLoading.tsx";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
           }
         />
         <Route path="/devChat-City/api/devchat" element={<DevChat />} />
+        <Route
+          path="/devChat-City/api/protectedLoading"
+          element={<ProtectedLoading />}
+        />
         <Route path="/devChat-City/api/loading" element={<Loading />} />
         <Route
           path="/devChat-City/api/errorRedirectToLogin"
