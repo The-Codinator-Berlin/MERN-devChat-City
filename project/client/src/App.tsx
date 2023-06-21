@@ -28,7 +28,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/devChat-City/api/devchat" element={<DevChat />} />
+        <Route
+          path="/devChat-City/api/devchat"
+          element={
+            <ProtectedRoute>
+              <DevChat />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/devChat-City/api/protectedLoading"
           element={<ProtectedLoading />}
