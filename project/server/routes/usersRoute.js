@@ -19,5 +19,7 @@ userRoute.get("/userProfile", authenticateJwt, getUserProfile);
 userRoute.post("/register", registerUser);
 userRoute.post("/login", loginUser);
 userRoute.post("/imageUpload", multerUpload.single("image"), imageUpload);
+userRoute.post("/updateAvatar", multerUpload.single("image"), imageUpload);
+// userRoute.post("/updateUserInfo", multerUpload.single("image"), imageUpload);
 
 export default userRoute;
