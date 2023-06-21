@@ -8,7 +8,6 @@ function DevChat() {
   return (
     <div className="bg-black text-white">
       <div className=" h-screen w-screen border-y-[0.1] border-white overflow-x-auto">
-        {/* <div className="flex flex-row"> */}
         <div className="flex flex-row flex-wrap justify-center">
           <div className="p-2">
             <h1 className="text-2xl font-Monoton sm:text-5xl">devChat</h1>
@@ -88,14 +87,13 @@ function DevChat() {
                 <input type="radio" value="meetup" name="general"></input>
               </div>
             </div>
-            {/* </div> */}
 
             <div>
               <div className="flex justify-center flex-col h-[1em] items-center my-12 rounded-full">
                 <div className="flex justify-center [align-items:center] my-4 rounded-full">
                   <select className="text-black bg-emerald-500 rounded-full">
                     <option value="filterByLanguage">
-                      Filter posts by popular coding languages{" "}
+                      Filter posts by popular codingLanguages{" "}
                     </option>
                     <option value="javascript">JavaScript</option>
                     <option value="python">Python</option>
@@ -119,6 +117,41 @@ function DevChat() {
             </div>
           </div>
           {/* ---------------------------------------> */}
+        </div>
+        <div className="formmmm border-b-[0.1em] border-white">
+          <div className="text-amber-200 text-xl flex justify-center">
+            Create_Post
+          </div>
+          <form className="flex-wrap">
+            <div className="w-[20em] flex justify-evenly">
+              <h4>Choose topic:</h4>
+              <label htmlFor="code">Code</label>
+              <input type="checkbox" name="code" id="code" />
+
+              <label htmlFor="general">General</label>
+              <input type="checkbox" name="" id="" />
+
+              <label htmlFor="meetup">Meetup</label>
+              <input type="checkbox" name="meetup" id="meetup" />
+            </div>
+            <div>
+              <h4>Heading:</h4>
+              <input type="text" name="heading" id="heading" />
+            </div>
+            <div>
+              <h4>Body:</h4>
+              <input type="text" name="body" id="body" />
+            </div>
+            <div className="py-4">
+              <input
+                className="h-7 bg-emerald-500 rounded-full font-Poppins font-light w-[13em]"
+                type="file"
+                name="screenshot"
+                id="screenshot"
+                // onChange={handleImageUpload}
+              />
+            </div>
+          </form>
         </div>
         <div>
           <PostsCard />
