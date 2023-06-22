@@ -48,7 +48,7 @@ function DevChat() {
                   className="bg-emerald-500"
                   type="radio"
                   value="all"
-                  name="all"
+                  name="radioFilter"
                   // checked={value}
                 ></input>
               </div>
@@ -61,7 +61,7 @@ function DevChat() {
                   className="bg-emerald-500"
                   type="radio"
                   value="code"
-                  name="code"
+                  name="radioFilter"
                   // checked={value}
                 ></input>
               </div>
@@ -76,7 +76,7 @@ function DevChat() {
                   className="bg-emerald-500"
                   type="radio"
                   value="general"
-                  name="general"
+                  name="radioFilter"
                 ></input>
               </div>
 
@@ -84,7 +84,7 @@ function DevChat() {
                 <label className="px-4" htmlFor="general">
                   Meetup
                 </label>
-                <input type="radio" value="meetup" name="general"></input>
+                <input type="radio" value="meetup" name="radioFilter"></input>
               </div>
             </div>
 
@@ -118,40 +118,105 @@ function DevChat() {
           </div>
           {/* ---------------------------------------> */}
         </div>
+        {/* Create post section -----------------------------> */}
         <div className="formmmm border-b-[0.1em] border-white">
-          <div className="text-amber-200 text-xl flex justify-center">
+          <div className="text-amber-200 text-xl flex justify-center border-b-[0.1em] border-white">
             Create_Post
           </div>
-          <form className="flex-wrap">
-            <div className="w-[20em] flex justify-evenly">
-              <h4>Choose topic:</h4>
-              <label htmlFor="code">Code</label>
-              <input type="checkbox" name="code" id="code" />
+          <form className="flex jutify-evenly justify-center">
+            <div className="border-x-[0.1em] border-l-0 border-white w-60">
+              <div className="p-4">
+                When creating your post: <br />
+                Please see required fields with a{" "}
+                <span className="text-red-600 text-3xl">*</span>
+              </div>
+            </div>
+            <div className="w-[10em] flex flex-col justify-evenly border-r-[0.1em] pl-4 border-white">
+              <h4 className="flex mr-1">
+                <span className="text-red-600 text-3xl">*</span>
+                &nbsp;Choose topic:
+              </h4>
+              {/* <hr /> */}
 
-              <label htmlFor="general">General</label>
-              <input type="checkbox" name="" id="" />
+              <div className="flex">
+                <label className="px-4" htmlFor="code">
+                  Code
+                </label>
+                <input type="radio" name="radio" id="code" required />
+              </div>
+              <div className="flex">
+                {" "}
+                <label className="px-2" htmlFor="general">
+                  General
+                </label>
+                <input type="radio" name="radio" id="general" required />
+              </div>
+              <div className="flex">
+                <label className="px-2" htmlFor="meetup">
+                  Meetup
+                </label>
+                <input type="radio" name="radio" id="meetup" required />
+              </div>
+            </div>
+            <div className="border-r-[0.1em] border-white">
+              <div className="w-60 mr-4">
+                <h4 className="flex">
+                  <span className="text-red-600 text-3xl">*</span>&nbsp;Heading:
+                </h4>
+                <input
+                  className="text-black w-[16em]"
+                  type="text"
+                  name="heading"
+                  id="form"
+                  placeholder="What is the best way to......?"
+                  required
+                />
 
-              <label htmlFor="meetup">Meetup</label>
-              <input type="checkbox" name="meetup" id="meetup" />
+                <h4 className="flex">
+                  <span className="text-red-600 text-3xl">*</span>&nbsp;Body:
+                </h4>
+                <textarea
+                  className="w-[16em] h-20 text-black"
+                  name="body"
+                  id="form"
+                  rows={10}
+                  cols={40}
+                  placeholder="Breifly describe your topic here..."
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <h4>Heading:</h4>
-              <input type="text" name="heading" id="heading" />
+            {/* Upload image ---------------------------------------> */}
+            <div className="flex flex-col items-center border-r-[0.1em] border-white">
+              <div className="pt-1">
+                <input
+                  className="h-7 bg-emerald-500 rounded-full font-Poppins font-light w-[13em]"
+                  type="file"
+                  name="screenshot"
+                  id="form"
+                  // onChange={handleImageUpload}
+                />
+              </div>
+              <div>
+                <img className="w-[13em] h-[8em]" src={logo} alt="Image" />
+              </div>
+              <div className="mb-4 text-sky-400 hover:text-orange-500">
+                <button type="submit" />
+                Add screenshot
+                <hr />
+              </div>
             </div>
-            <div>
-              <h4>Body:</h4>
-              <input type="text" name="body" id="body" />
+            {/* ------------------------------------------------------> */}
+            {/* Submit button ---------------------------------------> */}
+
+            <div className="w-60 flex flex-col justify-center pl-8 text-center text-sky-400 hover:text-orange-500">
+              <button type="submit" />
+              submitPost
+              <hr />
             </div>
-            <div className="py-4">
-              <input
-                className="h-7 bg-emerald-500 rounded-full font-Poppins font-light w-[13em]"
-                type="file"
-                name="screenshot"
-                id="screenshot"
-                // onChange={handleImageUpload}
-              />
-            </div>
+            {/* -------------------------------------------------------> */}
           </form>
+          {/* -------------------Form end------------------------------------> */}
         </div>
         <div>
           <PostsCard />
