@@ -1,10 +1,23 @@
 import NavigationBar from "../components/NavigationBar";
 import logo from "../assets/pictures/devChatLogo.jpeg";
 import PostsCard from "../components/Postscard";
+import { ChangeEvent, useState } from "react";
 
-// type Props = {};
+// interface Props = {};
 
 function DevChat() {
+  const [selectedRadio, setSelectedRadio] = useState<string>();
+  const [textInput, setTextInput] = useState<string>("");
+
+  const handleRadioButton = (e: ChangeEvent<HTMLInputElement>) => {
+    setSelectedRadio(e.target.value);
+    console.log("Selected radio:", e.target.value);
+  };
+
+  const handleTextInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setTextInput(e.target.value);
+    console.log("Selected radio:", e.target.value);
+  };
   return (
     <div className="bg-black text-white">
       <div className=" h-screen w-screen border-y-[0.1] border-white overflow-x-auto">
@@ -37,9 +50,8 @@ function DevChat() {
                 alt="Image"
               />
             </div>
-            <div></div>
-            {/* <div className="flex-row justify-center sm:flex-wrap"> */}
-            <div>
+            {/* -----------------------Radio buttons--------------------------------> */}
+            <div className="text-sky-400">
               <div className="py-4">
                 <label className="px-4" htmlFor="general">
                   allPosts
@@ -49,7 +61,6 @@ function DevChat() {
                   type="radio"
                   value="all"
                   name="radioFilter"
-                  // checked={value}
                 ></input>
               </div>
 
@@ -62,12 +73,11 @@ function DevChat() {
                   type="radio"
                   value="code"
                   name="radioFilter"
-                  // checked={value}
                 ></input>
               </div>
             </div>
 
-            <div>
+            <div className="text-sky-400">
               <div className="py-4">
                 <label className="px-4" htmlFor="general">
                   General
@@ -87,6 +97,7 @@ function DevChat() {
                 <input type="radio" value="meetup" name="radioFilter"></input>
               </div>
             </div>
+            {/* -------------------------------------------------------------------------> */}
 
             <div>
               <div className="flex justify-center flex-col h-[1em] items-center my-12 rounded-full">
@@ -124,11 +135,24 @@ function DevChat() {
             Create_Post
           </div>
           <form className="flex jutify-evenly justify-center">
-            <div className="border-x-[0.1em] border-l-0 border-white w-60">
+            <div className="border-x-[0.1em] border-l-0 border-white w-80">
               <div className="p-4">
                 When creating your post: <br />
                 Please see required fields with a{" "}
                 <span className="text-red-600 text-3xl">*</span>
+              </div>
+              <div className="w-80 mr-4 border-t-[0.1em] border-white">
+                <h4 className="flex w-80 py-4">&nbsp;codingLanguage:</h4>
+                <textarea
+                  className="text-black w-[20em]"
+                  name="heading"
+                  id="form"
+                  placeholder="Input coding language here...e.g Javascript"
+                  rows={1}
+                  cols={40}
+                  onChange={handleTextInputChange}
+                />
+                <div />
               </div>
             </div>
             <div className="w-[10em] flex flex-col justify-evenly border-r-[0.1em] pl-4 border-white">
@@ -142,20 +166,41 @@ function DevChat() {
                 <label className="px-4" htmlFor="code">
                   Code
                 </label>
-                <input type="radio" name="radio" id="code" required />
+                <input
+                  type="radio"
+                  name="topic"
+                  id="code"
+                  value="code"
+                  onChange={handleRadioButton}
+                  required
+                />
               </div>
               <div className="flex">
                 {" "}
                 <label className="px-2" htmlFor="general">
                   General
                 </label>
-                <input type="radio" name="radio" id="general" required />
+                <input
+                  type="radio"
+                  name="topic"
+                  id="general"
+                  value="general"
+                  onChange={handleRadioButton}
+                  required
+                />
               </div>
               <div className="flex">
                 <label className="px-2" htmlFor="meetup">
                   Meetup
                 </label>
-                <input type="radio" name="radio" id="meetup" required />
+                <input
+                  type="radio"
+                  name="topic"
+                  value="meetup"
+                  id="meetup"
+                  onChange={handleRadioButton}
+                  required
+                />
               </div>
             </div>
             <div className="border-r-[0.1em] border-white">
@@ -163,12 +208,14 @@ function DevChat() {
                 <h4 className="flex">
                   <span className="text-red-600 text-3xl">*</span>&nbsp;Heading:
                 </h4>
-                <input
+                <textarea
                   className="text-black w-[16em]"
-                  type="text"
                   name="heading"
                   id="form"
                   placeholder="What is the best way to......?"
+                  rows={1}
+                  cols={30}
+                  onChange={handleTextInputChange}
                   required
                 />
 
@@ -182,6 +229,7 @@ function DevChat() {
                   rows={10}
                   cols={40}
                   placeholder="Breifly describe your topic here..."
+                  onChange={handleTextInputChange}
                   required
                 />
               </div>
@@ -209,7 +257,7 @@ function DevChat() {
             {/* ------------------------------------------------------> */}
             {/* Submit button ---------------------------------------> */}
 
-            <div className="w-60 flex flex-col justify-center pl-8 text-center text-sky-400 hover:text-orange-500">
+            <div className="w-60 flex flex-col justify-center text-center text-sky-400 hover:text-orange-500">
               <button type="submit" />
               submitPost
               <hr />
