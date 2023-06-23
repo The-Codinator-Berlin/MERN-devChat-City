@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  createNewPost,
   getAllPosts,
   getPostsByCodingLanguage,
 } from "../controller/postsController.js";
@@ -19,6 +20,6 @@ PostsRoute.post(
   screenshotUpload
 );
 
-PostsRoute.post("/newPost", authenticateJwt);
+PostsRoute.post("/newPost", authenticateJwt, createNewPost);
 
 export default PostsRoute;
