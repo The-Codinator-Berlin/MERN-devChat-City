@@ -1,74 +1,77 @@
 import mongoose from "mongoose";
 
-
 const postSchema = new mongoose.Schema({
+  heading: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    heading: {
-        type: String,
-        required: true,
-        unique: false
-    },
+  body: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    body: {
-        type: String,
-        required: true,
-        unique: false
-    },
+  codingLanguage: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    codingLanguage: {
-        type: String,
-        required: true,
-        unique: false
-    },
+  topic: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 
-    author: {
-        type: String,
-        required: true,
-        unique: true
-    },
+  userWhoPosted: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 
-    image: {
+  image: {
+    type: String,
+    required: false,
+    unique: false,
+  },
+
+  likes: {
+    type: Number,
+    required: false,
+    unique: false,
+  },
+
+  postedWhen: {
+    type: String,
+    required: true,
+    unique: false,
+  },
+
+  comments: [
+    {
+      comment: {
         type: String,
         required: false,
-        unique: false
-    },
+        unique: false,
+      },
 
-    likes: {
-        type: Number,
-        required: false,
-        unique: false
-    },
-
-    postedWhen: {
+      author: {
         type: String,
         required: true,
-        unique: false
+        unique: true,
+      },
+
+      postedWhen: {
+        type: String,
+        required: false,
+        unique: false,
+      },
     },
+  ],
 
-    comments: [{
-
-        comment: {
-            type: String,
-            required: false,
-            unique: false,
-        },
-
-
-        author: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-
-        image: {
-            type: String,
-            required: false,
-            unique: false,
-        },
-    },],
-
-    userWhoPosted: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
-
+  userWhoPosted: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
 });
 
 const postsModel = mongoose.model("post", postSchema);
