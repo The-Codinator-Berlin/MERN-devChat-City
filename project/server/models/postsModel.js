@@ -27,8 +27,8 @@ const postSchema = new mongoose.Schema({
 
   userWhoPosted: {
     type: String,
-    required: true,
-    unique: true,
+    required: false,
+    unique: false,
   },
 
   image: {
@@ -45,7 +45,7 @@ const postSchema = new mongoose.Schema({
 
   postedWhen: {
     type: String,
-    required: true,
+    required: false,
     unique: false,
   },
 
