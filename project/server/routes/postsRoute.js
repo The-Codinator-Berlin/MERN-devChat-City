@@ -13,10 +13,12 @@ PostsRoute.get("/all", getAllPosts);
 PostsRoute.get("/:codingLanguage", authenticateJwt, getPostsByCodingLanguage);
 
 PostsRoute.post(
-  "/createPost",
+  "/sendImage",
   authenticateJwt,
   multerUpload.single("image"),
   screenshotUpload
 );
+
+PostsRoute.post("/newPost", authenticateJwt);
 
 export default PostsRoute;
