@@ -79,6 +79,46 @@ const screenshotUpload = async (request, response) => {
   }
 };
 
+const createNewPost = async (request, response) => {
+  try {
+    const authLoggedUser = await authenticateJwt;
+    console.log("authLoggedUser :>> ", authLoggedUser);
+
+    if (authLoggedUser) {
+      const newPost = new postsModel({
+        heading: request.body.heading,
+        body: request.body.body,
+        codingLanguage: request.body.codingLanguage,
+        topic: request.body.topic,
+        image: request.body.image,
+      });
+      try {
+        //NOTE - 200 refers to a successful response
+        const savedNewPost = await newPost.save();
+        response.status(200).json({
+          message:
+            "The post information has been successfully saved to the database!",
+          heading: request.body.heading,
+          body: request.body.body,
+          codingLanguage: request.body.codingLanguage,
+          topic: request.body.topic,
+          image: request.body.image,
+        });
+        console.log("savedNewPost :>> ", savedNewPost);
+      } catch (error) {
+        console.log("\u001B[31m" + "Error saving new post!", error);
+      }
+    }
+  } catch (error) {
+    console.log("No authorization from token to creat post! :>>>>>", error);
+    //NOTE - 500 refers to general error of process
+
+    response.status(500).json({
+      errorMessage: "There was an error in creating and saving the post!",
+    });
+  }
+};
+
 export {
   getAllPosts,
   getPostsByCodingLanguage,
