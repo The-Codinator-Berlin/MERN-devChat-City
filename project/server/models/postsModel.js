@@ -25,9 +25,9 @@ const postSchema = new mongoose.Schema({
     unique: false,
   },
 
-  userWhoPosted: {
+  whoPosted: {
     type: String,
-    required: false,
+    required: true,
     unique: false,
   },
 
