@@ -83,7 +83,7 @@ function Register() {
 
   //This async function triggers when the upload image button is clicked and a POST request is made to cloudinary.
   //If this is successful it updates the avatar property of the newUser state witht he URL of the image.
-  const submitImageUploadFunc = async (e: FormEvent<HTMLFormElement>) => {
+  const submitFunc = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formdata = new FormData();
     formdata.append("image", selectedImageToUpload);
@@ -153,7 +153,7 @@ function Register() {
       </div>
       <div>
         <form
-          onSubmit={submitImageUploadFunc}
+          onSubmit={submitFunc}
           className="imageUploadBox h-50 w-100% text-center flex justify-center flex-col items-center"
         >
           {/* //NOTE - If newUser has information containing a string for the avatar */}
