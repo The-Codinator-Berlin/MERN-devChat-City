@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // type Props = {};
 
 const NavigationBar = () => {
+  //SECTION --------------------------------------------->
+  //NOTE - This function logs out the user by removing the
+  // token from the local storage
   const logout = () => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -12,7 +15,11 @@ const NavigationBar = () => {
     }
   };
 
+  //------------------------------------------------------>
+
   return (
+    //SECTION -------------------------------------------->
+    //NOTE - In the return are all the nav links and styling
     <div className="text-white ]">
       <div className="flex flex-col items-center sm:flex sm:flex-row justify-between font-Poppins font-light mx-2 sm:text-lg">
         <div className="text-emerald-500 md:hover:text-emerald-400 md:text-orange-500">
@@ -42,6 +49,7 @@ const NavigationBar = () => {
       </div>
     </div>
   );
+  //------------------------------------------------------>
 };
 
 export default NavigationBar;
