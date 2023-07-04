@@ -38,6 +38,13 @@ export default function PostsCard({}: Props) {
           <h3 className="text-emerald-500">Sally-The-One</h3>
         </div>
       </div>
+      <div className="flex justify-center">
+        <h3 className="font-light text-red-500 text-xs">
+          postedWhen&nbsp;&nbsp;:&nbsp;&nbsp;
+        </h3>
+
+        <h3 className="text-emerald-500 font-light text-sm">21/06/2023</h3>
+      </div>
 
       <div className="flex-grow text-sm text-start pl-4 border-y-[0.1em]">
         <div className="flex justify-center text-sky-400">Heading:</div>
