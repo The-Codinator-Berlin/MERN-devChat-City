@@ -81,7 +81,7 @@ function UserProfile() {
               <div className="md:h-[12em] xl:h-[14] flex flex-wrap border-y-[0.1em] border-white sm:w-full md:flex justify-around [align-items:center]">
                 <img
                   className="w-[8em] h-[8em] border-white border-[0.1em] rounded-full"
-                  src={avatar}
+                  src={user.avatar}
                   alt="Image"
                 />
                 <form>
