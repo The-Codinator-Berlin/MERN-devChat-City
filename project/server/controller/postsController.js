@@ -83,7 +83,7 @@ const createNewPost = async (request, response) => {
   console.log("request.user :>>>>> ", request.user);
   if (request.body) {
     const newPost = new postsModel({
-      userWhoPosted: request.user.userName,
+      whoPosted: request.user.userName,
       heading: request.body.heading,
       body: request.body.body,
       codingLanguage: request.body.codingLanguage,
