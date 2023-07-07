@@ -109,6 +109,21 @@ function DevChat() {
       console.log("you need to login first");
     }
   };
+
+  const fetchAllPosts = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5001/api/devChat-City/posts/all"
+      );
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  fetchAllPosts();
+
   return (
     <div className="bg-black text-white">
       <div className=" h-screen w-screen border-y-[0.1] border-white overflow-x-auto">
@@ -386,13 +401,12 @@ function DevChat() {
           {/* -------------------Form end------------------------------------> */}
         </div>
         {/* //SECTION -----------------------------------------------------  Create post section END -----------------------------------------------------------------------------> */}
-        <div>
+        {/* <div>
           {listOfPost &&
             listOfPost.map((post) => {
               return <PostsCard post={post} />;
             })}
-        </div>
-        {/* </div> */}
+        </div> */}
       </div>
     </div>
   );
