@@ -6,21 +6,20 @@ import { Link, useNavigate } from "react-router-dom";
 // type Props = {};
 
 function Register() {
+  //SECTION --------------------States-------------------------------------->
+
   // Handling state when file is selected with the choose file button
   const [selectedImageToUpload, setSelectedImageToUpload] = useState<
     File | string
   >("");
 
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
-
+  // validation messages for email and password inputs --------------------->
   const [emailValidMessage, setEmailValidMessage] = useState<string>();
   const [emailInValidMessage, setEmailInValidMessage] = useState<string>();
   const [passwordInValidMessage, setPasswordInValidMessage] =
     useState<string>();
   const [passwordValidMessage, setPasswordValidMessage] = useState<string>();
-  // const goTo = useNavigate();
+  //----------------------------------------------------------------------->
 
   // State created for new user which will be empty strings as initial state
   const [newUser, setNewUser] = useState<RegisterCredentials>({
@@ -29,6 +28,13 @@ function Register() {
     password: "",
     avatar: "",
   });
+
+  //User info states to store them for registration
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+
+  //---------------------------States end----------------------------------->
 
   //This function is triggered when a file is selected using the file input field.
   // It extracts the selected file from the event and updates the selectedImageToUpload state accordingly.
@@ -51,13 +57,14 @@ function Register() {
       inputValue.length >= 11
     ) {
       setEmailValidMessage("Email is valid!");
-      setEmailInValidMessage(""); // Clear any previous invalid email message
+      setEmailInValidMessage(""); // Clear any previous email message
     } else {
       setEmailInValidMessage("Please enter a valid email..");
       setEmailValidMessage("");
     }
   };
 
+  // This function handles the password input functionality
   const handlePasswordInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setNewUser({ ...newUser, [e.target.name]: inputValue });
