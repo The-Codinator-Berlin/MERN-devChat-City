@@ -81,14 +81,15 @@ const screenshotUpload = async (request, response) => {
 
 const createNewPost = async (request, response) => {
   console.log("request.user :>>>>> ", request.user);
+
   if (request.body) {
     const newPost = new postsModel({
-      whoPosted: request.user.userName,
       heading: request.body.heading,
       body: request.body.body,
       codingLanguage: request.body.codingLanguage,
       topic: request.body.topic,
       image: request.body.image,
+      userWhoPosted: request.user._id,
     });
     try {
       //NOTE - 200 refers to a successful response
@@ -96,6 +97,7 @@ const createNewPost = async (request, response) => {
       response.status(200).json({
         message:
           "The post information has been successfully saved to the database!",
+        savedNewPost,
       });
       console.log("savedNewPost :>> ", savedNewPost);
     } catch (error) {

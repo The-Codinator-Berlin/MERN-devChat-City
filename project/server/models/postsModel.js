@@ -25,11 +25,11 @@ const postSchema = new mongoose.Schema({
     unique: false,
   },
 
-  whoPosted: {
-    type: String,
-    required: true,
-    unique: false,
-  },
+  // whoPosted: {
+  //   type: String,
+  //   required: true,
+  //   unique: false,
+  // },
 
   image: {
     type: String,
