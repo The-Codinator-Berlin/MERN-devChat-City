@@ -17,6 +17,8 @@ function DevChat() {
 
   const [selectedFile, setSelectedFile] = useState<File | string>("");
 
+  const [storedPosts, setStoredPosts] = useState([]);
+
   const handleFilterRadioButton = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedNewPostRadio(e.target.value);
     // console.log("Selected radio:", e.target.value);
@@ -119,6 +121,7 @@ function DevChat() {
           "http://localhost:5001/api/devChat-City/posts/all"
         );
         const result = await response.json();
+        setStoredPosts(result);
         console.log(result);
       } catch (error) {
         console.log("error", error);
