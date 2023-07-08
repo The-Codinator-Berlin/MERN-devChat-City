@@ -1,7 +1,7 @@
 import NavigationBar from "../components/NavigationBar";
 import logo from "../assets/pictures/devChatLogo.jpeg";
 import PostsCard from "../components/Postscard";
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function DevChat() {
@@ -108,21 +108,31 @@ function DevChat() {
     } else {
       console.log("you need to login first");
     }
+    fetchAllPosts();
   };
 
   const fetchAllPosts = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:5001/api/devChat-City/posts/all"
+    const storedToken: Token = localStorage.getItem("token");
+    if (storedToken) {
+      try {
+        const response = await fetch(
+          "http://localhost:5001/api/devChat-City/posts/all"
+        );
+        const result = await response.json();
+        console.log(result);
+      } catch (error) {
+        console.log("error", error);
+      }
+    } else {
+      console.log(
+        "Sorry you are not authorized to create a post, please login.."
       );
-      const result = await response.json();
-      console.log(result);
-    } catch (error) {
-      console.log("error", error);
     }
   };
 
-  fetchAllPosts();
+  useEffect(() => {
+    fetchAllPosts();
+  }, []);
 
   return (
     <div className="bg-black text-white">

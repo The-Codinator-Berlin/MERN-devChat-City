@@ -10,7 +10,7 @@ import { screenshotUpload } from "../controller/postsController.js";
 
 const PostsRoute = express.Router();
 
-PostsRoute.get("/all", getAllPosts);
+PostsRoute.get("/all", authenticateJwt, getAllPosts);
 PostsRoute.get("/:codingLanguage", authenticateJwt, getPostsByCodingLanguage);
 
 PostsRoute.post(
