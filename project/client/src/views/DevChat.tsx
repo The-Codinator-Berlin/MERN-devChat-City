@@ -112,8 +112,8 @@ function DevChat() {
   };
 
   const fetchAllPosts = async () => {
-    const storedToken: Token = localStorage.getItem("token");
-    if (storedToken) {
+    const token = localStorage.getItem("token");
+    if (token) {
       try {
         const response = await fetch(
           "http://localhost:5001/api/devChat-City/posts/all"
