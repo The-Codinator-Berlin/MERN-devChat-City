@@ -4,15 +4,15 @@ import PostsCard from "../components/Postscard";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
-interface PostType {
-  topic: string;
-  codingLanguage: string;
-  userWhoPosted: string;
-  heading: string;
-  body: string;
-  image: string;
-  _id: string;
-}
+// interface PostType {
+//   topic: string;
+//   codingLanguage: string;
+//   userWhoPosted: string;
+//   heading: string;
+//   body: string;
+//   image: string;
+//   _id: string;
+// }
 
 function DevChat() {
   const [selectedNewPostRadio, setSelectedNewPostRadio] = useState<string>();
@@ -27,7 +27,7 @@ function DevChat() {
 
   const [selectedFile, setSelectedFile] = useState<File | string>("");
 
-  const [allPostsStored, setAllPostsStored] = useState<PostType[]>([]);
+  const [allPostsStored, setAllPostsStored] = useState([]);
 
   const handleFilterRadioButton = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedNewPostRadio(e.target.value);

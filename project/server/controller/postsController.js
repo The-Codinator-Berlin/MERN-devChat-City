@@ -6,7 +6,7 @@ const getAllPosts = async (request, response) => {
   try {
     const allPosts = await postsModel
       .find({})
-      .populate({ path: "userWhoPosted", select: "userId" });
+      .populate({ path: "userWhoPosted", select: ["userName"] });
     response.status(200).json({
       allPosts,
       number: allPosts.length,

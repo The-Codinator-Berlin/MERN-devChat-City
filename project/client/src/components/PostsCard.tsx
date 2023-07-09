@@ -5,7 +5,10 @@ type Props = {
   post: {
     topic: string;
     codingLanguage: string;
-    userWhoPosted: string;
+    userWhoPosted: {
+      _id: string;
+      userName: string;
+    };
     heading: string;
     body: string;
     image: string;
@@ -13,6 +16,7 @@ type Props = {
   };
 };
 export default function PostsCard({ post }: Props) {
+  console.log("post :>> ", post);
   return (
     <div className="border-[0.1em] border-white w-[20em] h-[30em] m-4 overflow-x-auto">
       <div className="flex justify-center text-xl font-Monoton">
@@ -44,7 +48,7 @@ export default function PostsCard({ post }: Props) {
           </h3>
         </div>
         <div>
-          <h3 className="text-emerald-500">{post.userWhoPosted}</h3>
+          <h3 className="text-emerald-500">{post.userWhoPosted?.userName}</h3>
         </div>
       </div>
       <div className="flex justify-center">
