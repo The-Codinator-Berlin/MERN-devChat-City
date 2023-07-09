@@ -4,6 +4,16 @@ import PostsCard from "../components/Postscard";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
+interface PostType {
+  topic: string;
+  codingLanguage: string;
+  userWhoPosted: string;
+  heading: string;
+  body: string;
+  image: string;
+  _id: string;
+}
+
 function DevChat() {
   const [selectedNewPostRadio, setSelectedNewPostRadio] = useState<string>();
   // const [textInput, setTextInput] = useState<string>("");
@@ -17,7 +27,7 @@ function DevChat() {
 
   const [selectedFile, setSelectedFile] = useState<File | string>("");
 
-  const [storedPosts, setStoredPosts] = useState([]);
+  const [allPostsStored, setAllPostsStored] = useState<PostType[]>([]);
 
   const handleFilterRadioButton = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedNewPostRadio(e.target.value);
@@ -121,7 +131,7 @@ function DevChat() {
           "http://localhost:5001/api/devChat-City/posts/all"
         );
         const result = await response.json();
-        setStoredPosts(result);
+        setAllPostsStored(result.allPosts);
         console.log(result);
       } catch (error) {
         console.log("error", error);
@@ -414,12 +424,12 @@ function DevChat() {
           {/* -------------------Form end------------------------------------> */}
         </div>
         {/* //SECTION -----------------------------------------------------  Create post section END -----------------------------------------------------------------------------> */}
-        {/* <div>
-          {listOfPost &&
-            listOfPost.map((post) => {
-              return <PostsCard post={post} />;
+        <div>
+          {allPostsStored &&
+            allPostsStored.map((post) => {
+              return <PostsCard post={post} key={post._id} />;
             })}
-        </div> */}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,18 @@
 import React from "react";
 import image from "../assets/pictures/dummy_code.jpeg";
 
-// type Props = {}
-
-export default function PostsCard({}: Props) {
+type Props = {
+  post: {
+    topic: string;
+    codingLanguage: string;
+    userWhoPosted: string;
+    heading: string;
+    body: string;
+    image: string;
+    _id: string;
+  };
+};
+export default function PostsCard({ post }: Props) {
   return (
     <div className="border-[0.1em] border-white w-[20em] h-[30em] m-4 overflow-x-auto">
       <div className="flex justify-center text-xl font-Monoton">
@@ -12,7 +21,7 @@ export default function PostsCard({}: Props) {
           <hr />
         </div>
         <div>
-          <h3>Code</h3>
+          <h3>{post.topic}</h3>
           <hr />
         </div>
       </div>
@@ -24,7 +33,7 @@ export default function PostsCard({}: Props) {
           </h3>
         </div>
         <div className="my-4">
-          <h3 className="text-amber-200">Javascript</h3>
+          <h3 className="text-amber-200">{post.codingLanguage}</h3>
         </div>
       </div>
 
@@ -35,7 +44,7 @@ export default function PostsCard({}: Props) {
           </h3>
         </div>
         <div>
-          <h3 className="text-emerald-500">Sally-The-One</h3>
+          <h3 className="text-emerald-500">{post.userWhoPosted}</h3>
         </div>
       </div>
       <div className="flex justify-center">
@@ -49,15 +58,15 @@ export default function PostsCard({}: Props) {
       <div className="flex-grow text-sm text-start pl-4 border-y-[0.1em]">
         <div className="flex justify-center text-sky-400">Heading:</div>
 
-        <h3 className="mb-4 flex justify-center">Whats wrong with this?</h3>
+        <h3 className="mb-4 flex justify-center">{post.heading}</h3>
       </div>
       <div className="flex-grow text-sm text-start pl-4 border-y-[0.1em]">
         <div className="flex justify-center text-orange-500">Body:</div>
-        <p>Tried to fix it many times but I cannot see the solution!</p>
+        <p>{post.body}</p>
       </div>
 
       <div className="flex">
-        <img className="w-full h-[13em]" src={image} alt="Image" />
+        <img className="w-full h-[13em]" src={post.image} alt="Image" />
       </div>
 
       <div>
