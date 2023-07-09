@@ -424,7 +424,7 @@ function DevChat() {
           {/* -------------------Form end------------------------------------> */}
         </div>
         {/* //SECTION -----------------------------------------------------  Create post section END -----------------------------------------------------------------------------> */}
-        <div>
+        <div className="grid grid-cols-2 gap-2 pt-1 m-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {allPostsStored &&
             allPostsStored.map((post) => {
               return <PostsCard post={post} key={post._id} />;
