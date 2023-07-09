@@ -69,7 +69,7 @@ export default function PostsCard({ post }: Props) {
         <p>{post.body}</p>
       </div>
 
-      <div className="flex">
+      <div className="flex border-b-[0.1em] border-white">
         <img className="w-full h-[13em]" src={post.image} alt="Image" />
       </div>
 
