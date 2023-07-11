@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createNewPost,
+  deletePost,
   getAllPosts,
   getPostsByCodingLanguage,
 } from "../controller/postsController.js";
@@ -21,5 +22,6 @@ PostsRoute.post(
 );
 
 PostsRoute.post("/newPost", authenticateJwt, createNewPost);
+PostsRoute.post("/deletePost", authenticateJwt, deletePost);
 
 export default PostsRoute;
