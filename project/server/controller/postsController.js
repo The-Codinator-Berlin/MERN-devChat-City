@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import authenticateJwt from "../middleware/jwtAuth.js";
 import postsModel from "../models/postsModel.js";
 import { v2 as cloudinary } from "cloudinary";
@@ -113,9 +114,37 @@ const createNewPost = async (request, response) => {
   }
 };
 
+const deletePost = async (request, response) => {
+  const postId = request.body.postId;
+  const userId = request.user;
+  console.log("postId :>> ", postId);
+  // console.log("userId :>> ", userId);
+
+  try {
+    const post = await postsModel.findByIdAndDelete(postId);
+    console.log("post :>> ", post);
+
+    if (!post) {
+      return response.status(404).json({ error: "Error deleting post" });
+    }
+    //NOTE this block would work if instead of findByIdAndDelete, we would 1st do
+    //findOne / findById, finding the post, and then checking user and author and deleting with postModel.DeleteOne({ _id: postId })
+    //   // post.delete
+    // if (post.userWhoPosted !== userId)
+    //   return response.status(403).json({ error: "Unauthorized access" });
+    // }
+
+    return response.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    return response.status(500).json({ error: "Server error deleting post" });
+  }
+};
+
 export {
   getAllPosts,
   getPostsByCodingLanguage,
   screenshotUpload,
   createNewPost,
+  deletePost,
 };
