@@ -1,24 +1,60 @@
 import React from "react";
 import image from "../assets/pictures/dummy_code.jpeg";
 
-type Props = {
-  post: {
-    topic: string;
-    codingLanguage: string;
-    userWhoPosted: {
-      _id: string;
-      userName: string;
-    };
-    heading: string;
-    body: string;
-    image: string;
-    _id: string;
-  };
-};
+// type Props = {
+//   post: {
+//     topic: string;
+//     codingLanguage: string;
+//     userWhoPosted: {
+//       _id: string;
+//       userName: string;
+//     };
+//     heading: string;
+//     body: string;
+//     image: string;
+//     _id: string;
+//   };
+// };
+
 export default function PostsCard({ post }: Props) {
+  // const hanleDeletePostButton = (e) => {
+  const deletePost = async () => {
+    const token = await localStorage.getItem("token");
+    if (token) {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+      myHeaders.append("Authorization", `Bearer ${token}`);
+      console.log("postttttt :>> ", post);
+
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: post._id,
+        redirect: "follow",
+      };
+
+      try {
+        const response = await fetch(
+          `http://localhost:5001/api/devChat-City/posts/deletePost/${post._id}`,
+          requestOptions
+        );
+        const result = await response.text();
+        window.location.reload();
+        console.log(result);
+      } catch (error) {
+        console.log("error", error);
+      }
+    }
+  };
+  // };
   console.log("post :>> ", post);
   return (
     <div className="border-[0.1em] border-white w-[20em] h-[30em] m-4 overflow-x-auto">
+      <div className="flex justify-center">
+        <button onClick={deletePost} className="text-red-500">
+          DeletePost
+        </button>
+      </div>
       <div className="flex justify-center text-xl font-Monoton">
         <div>
           <h1>Topic&nbsp;&nbsp;:&nbsp;&nbsp;</h1>

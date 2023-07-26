@@ -115,10 +115,9 @@ const createNewPost = async (request, response) => {
 };
 
 const deletePost = async (request, response) => {
-  const postId = request.body.postId;
-  const userId = request.user;
+  console.log("request.body :>> ", request.body);
+  const postId = request.params.id;
   console.log("postId :>> ", postId);
-  // console.log("userId :>> ", userId);
 
   try {
     const post = await postsModel.findByIdAndDelete(postId);

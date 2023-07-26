@@ -22,6 +22,5 @@ PostsRoute.post(
 );
 
 PostsRoute.post("/newPost", authenticateJwt, createNewPost);
-PostsRoute.post("/deletePost", authenticateJwt, deletePost);
-
+PostsRoute.post("/deletePost/:id", authenticateJwt, deletePost);
 export default PostsRoute;
