@@ -4,6 +4,7 @@ import {
   deletePost,
   getAllPosts,
   getPostsByCodingLanguage,
+  updateProfile,
 } from "../controller/postsController.js";
 import authenticateJwt from "../middleware/jwtAuth.js";
 import multerUpload from "../middleware/multer.js";
@@ -21,6 +22,7 @@ PostsRoute.post(
   screenshotUpload
 );
 
+PostsRoute.post("/updateProfileInfo", authenticateJwt, updateProfile);
 PostsRoute.post("/newPost", authenticateJwt, createNewPost);
 PostsRoute.post("/deletePost/:id", authenticateJwt, deletePost);
 export default PostsRoute;
